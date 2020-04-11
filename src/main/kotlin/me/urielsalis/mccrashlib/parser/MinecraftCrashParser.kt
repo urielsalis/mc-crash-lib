@@ -42,7 +42,11 @@ class MinecraftCrashParser : CrashParser {
         val builder = StringBuilder()
         lines.map(String::trim).forEach {
             when {
-                !foundStart -> if (it.startsWith("java.lang")) {
+                !foundStart -> if (
+                    it.startsWith("java.lang") ||
+                    it.startsWith("java.util") ||
+                    it.startsWith("org.lwjgl")
+                ) {
                     foundStart = true
                     builder.append(it)
                 }
