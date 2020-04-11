@@ -2,6 +2,7 @@ plugins {
     java
     id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
     kotlin("jvm") version "1.3.71"
+    maven
 }
 
 group = "me.urielsalis"
