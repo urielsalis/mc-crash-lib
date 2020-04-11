@@ -1,0 +1,91 @@
+-- Test section --
+From: https://bugs.mojang.com/secure/attachment/280834/crash-2020-04-11_19.16.18-server.txt
+
+---- Minecraft Crash Report ----
+// Would you like a cupcake?
+
+Time: 4/11/20 7:16 PM
+Description: Exception ticking world
+
+java.lang.IllegalArgumentException: bound must be positive
+	at java.util.Random.nextInt(Random.java:388)
+	at ary.a(SourceFile:194)
+	at ary.a(SourceFile:49)
+	at arm.a(SourceFile:389)
+	at asu.a(SourceFile:86)
+	at bgv.a(SourceFile:472)
+	at qs.a(SourceFile:174)
+	at bfh.a(SourceFile:861)
+	at qs.c(SourceFile:104)
+	at qs.d(SourceFile:116)
+	at aqu.a(SourceFile:276)
+	at aqu.f(SourceFile:272)
+	at aqu.p(SourceFile:657)
+	at awn.b(SourceFile:66)
+	at atr.a(SourceFile:437)
+	at qt.h(SourceFile:384)
+	at qt.c(SourceFile:202)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:599)
+	at po.z(SourceFile:305)
+	at net.minecraft.server.MinecraftServer.y(SourceFile:531)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:447)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at java.util.Random.nextInt(Random.java:388)
+	at ary.a(SourceFile:194)
+	at ary.a(SourceFile:49)
+	at arm.a(SourceFile:389)
+	at asu.a(SourceFile:86)
+	at bgv.a(SourceFile:472)
+	at qs.a(SourceFile:174)
+	at bfh.a(SourceFile:861)
+	at qs.c(SourceFile:104)
+	at qs.d(SourceFile:116)
+	at aqu.a(SourceFile:276)
+	at aqu.f(SourceFile:272)
+	at aqu.p(SourceFile:657)
+	at awn.b(SourceFile:66)
+	at atr.a(SourceFile:437)
+	at qt.h(SourceFile:384)
+	at qt.c(SourceFile:202)
+
+-- Affected level --
+Details:
+	Level name: world
+	All players: 1 total; [qw['L00KatDat'/288, l='world', x=197.70, y=65.00, z=80.79]]
+	Chunk stats: ServerChunkCache: 688 Drop: 0
+	Level seed: 4988751135041983174
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options:
+	Level spawn location: 192.00,77.00,-144.00 - World: (192,77,-144), Chunk: (at 0,4,0 in 12,-9; contains blocks 192,0,-144 to 207,255,-129), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,0,-512 to 511,255,-1)
+	Level time: 160766 game time, 1900 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 74538 (now: false), thunder time: 33861 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.z(SourceFile:599)
+	at po.z(SourceFile:305)
+	at net.minecraft.server.MinecraftServer.y(SourceFile:531)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:447)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8
+	Operating System: Mac OS X (x86_64) version 10.15.3
+	Java Version: 1.8.0_241, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1587442448 bytes (1513 MB) / 1764753408 bytes (1683 MB) up to 3817865216 bytes (3641 MB)
+	JVM Flags: 0 total;
+	IntCache: cache: 0, tcache: 0, allocated: 13, tallocated: 95
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 20; [qw['L00KatDat'/288, l='world', x=197.70, y=65.00, z=80.79]]
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)

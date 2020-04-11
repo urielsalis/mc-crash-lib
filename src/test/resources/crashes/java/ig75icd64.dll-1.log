@@ -1,0 +1,218 @@
+From: https://bugs.mojang.com/secure/attachment/42739/crash-development-console.txt
+
+Refreshing local version list...
+Launcher 1.2.5 (through bootstrap 5) started on windows...
+Current time is Sep 27, 2013 10:47:58 PM
+System.getProperty('os.name') == 'Windows 7'
+System.getProperty('os.version') == '6.1'
+System.getProperty('os.arch') == 'amd64'
+System.getProperty('java.version') == '1.7.0_25'
+System.getProperty('java.vendor') == 'Oracle Corporation'
+System.getProperty('sun.arch.data.model') == '64'
+Refreshing remote version list...
+Unexpected exception refreshing version list
+java.net.UnknownHostException: s3.amazonaws.com
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.<init>(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.New(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at net.minecraft.launcher.Http.performGet(Http.java:51)
+	at net.minecraft.launcher.updater.RemoteVersionList.getContent(RemoteVersionList.java:26)
+	at net.minecraft.launcher.updater.VersionList.refreshVersions(VersionList.java:77)
+	at net.minecraft.launcher.updater.VersionManager.refreshVersions(VersionManager.java:50)
+	at net.minecraft.launcher.Launcher$2.run(Launcher.java:170)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+Couldn't download resources
+java.net.UnknownHostException: s3.amazonaws.com
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.connect(Unknown Source)
+	at sun.security.ssl.BaseSSLSocketImpl.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.<init>(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.New(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at net.minecraft.launcher.updater.VersionManager.getResourceFiles(VersionManager.java:248)
+	at net.minecraft.launcher.updater.VersionManager.downloadResources(VersionManager.java:236)
+	at net.minecraft.launcher.Launcher$1.run(Launcher.java:156)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+Download job 'Resources' skipped as there are no files to download
+Job 'Resources' finished successfully
+Loaded 1 profile(s); selected 'Ted'
+Refreshing auth...
+Logging in with access token
+net.minecraft.launcher.authentication.exceptions.AuthenticationException: Cannot contact authentication server
+	at net.minecraft.launcher.authentication.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:128)
+	at net.minecraft.launcher.authentication.yggdrasil.YggdrasilAuthenticationService.logInWithToken(YggdrasilAuthenticationService.java:94)
+	at net.minecraft.launcher.authentication.yggdrasil.YggdrasilAuthenticationService.logIn(YggdrasilAuthenticationService.java:51)
+	at net.minecraft.launcher.Launcher.ensureLoggedIn(Launcher.java:213)
+	at net.minecraft.launcher.Launcher$2.run(Launcher.java:182)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.net.UnknownHostException: authserver.mojang.com
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.<init>(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.New(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(Unknown Source)
+	at net.minecraft.hopper.Util.performPost(Util.java:28)
+	at net.minecraft.launcher.authentication.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:109)
+	... 10 more
+
+Getting syncinfo for selected version
+Queueing library & version downloads
+Download job 'Version & Libraries' started (8 threads, 19 files)
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\librarylwjglopenal\20100824\librarylwjglopenal-20100824.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\soundsystem\20120107\soundsystem-20120107.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\net\sf\jopt-simple\jopt-simple\4.5\jopt-simple-4.5.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\argo\argo\2.25_fixed\argo-2.25_fixed.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\net\java\jutils\jutils\1.0.0\jutils-1.0.0.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\google\code\gson\gson\2.2.2\gson-2.2.2.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\org\apache\commons\commons-lang3\3.1\commons-lang3-3.1.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\libraryjavasound\20101123\libraryjavasound-20101123.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\codecwav\20101023\codecwav-20101023.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl_util\2.9.0\lwjgl_util-2.9.0.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\net\java\jinput\jinput-platform\2.0.5\jinput-platform-2.0.5-natives-windows.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl-platform\2.9.0\lwjgl-platform-2.9.0-natives-windows.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\codecjorbis\20101023\codecjorbis-20101023.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\commons-io\commons-io\2.4\commons-io-2.4.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\net\java\jinput\jinput\2.0.5\jinput-2.0.5.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl\2.9.0\lwjgl-2.9.0.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\org\bouncycastle\bcprov-jdk15on\1.47\bcprov-jdk15on-1.47.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\google\guava\guava\14.0\guava-14.0.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Finished downloading C:\Users\Ted\AppData\Roaming\.minecraft\versions\1.6.4\1.6.4.jar for job 'Version & Libraries': Couldn't connect to server (UnknownHostException: 's3.amazonaws.com') but have local file, assuming it's good
+Job 'Version & Libraries' finished successfully
+Launching game
+Looking for old natives to clean up...
+Unpacking natives to C:\Users\Ted\AppData\Roaming\.minecraft\versions\1.6.4\1.6.4-natives-136465704148
+Launching in C:\Users\Ted\AppData\Roaming\.minecraft
+Running C:\Program Files\Java\jre7\bin\javaw.exe -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx1G -Djava.library.path=C:\Users\Ted\AppData\Roaming\.minecraft\versions\1.6.4\1.6.4-natives-136465704148 -cp C:\Users\Ted\AppData\Roaming\.minecraft\libraries\net\sf\jopt-simple\jopt-simple\4.5\jopt-simple-4.5.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\codecjorbis\20101023\codecjorbis-20101023.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\codecwav\20101023\codecwav-20101023.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\libraryjavasound\20101123\libraryjavasound-20101123.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\librarylwjglopenal\20100824\librarylwjglopenal-20100824.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\paulscode\soundsystem\20120107\soundsystem-20120107.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\argo\argo\2.25_fixed\argo-2.25_fixed.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\org\bouncycastle\bcprov-jdk15on\1.47\bcprov-jdk15on-1.47.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\google\guava\guava\14.0\guava-14.0.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\org\apache\commons\commons-lang3\3.1\commons-lang3-3.1.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\net\java\jinput\jinput\2.0.5\jinput-2.0.5.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\net\java\jutils\jutils\1.0.0\jutils-1.0.0.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\com\google\code\gson\gson\2.2.2\gson-2.2.2.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl\2.9.0\lwjgl-2.9.0.jar;C:\Users\Ted\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl\lwjgl_util\2.9.0\lwjgl_util-2.9.0.jar;C:\Users\Ted\AppData\Roaming\.minecraft\versions\1.6.4\1.6.4.jar net.minecraft.client.main.Main --username Ted --session ${auth_session} --version 1.6.4 --gameDir C:\Users\Ted\AppData\Roaming\.minecraft --assetsDir C:\Users\Ted\AppData\Roaming\.minecraft\assets
+Client> 2013-09-27 22:48:16 [CLIENT] [INFO] Setting user: Ted
+Client> 2013-09-27 22:48:16 [CLIENT] [INFO] (Session ID is ${auth_session})
+Client> 2013-09-27 22:48:16 [CLIENT] [INFO] LWJGL Version: 2.9.0
+Client> 2013-09-27 22:48:17 [CLIENT] [INFO] Reloading ResourceManager: Default
+Client>
+Client> Starting up SoundSystem...
+Client> Initializing LWJGL OpenAL
+Client>     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+Client> OpenAL initialized.
+Client>
+Client> 2013-09-27 22:48:18 [CLIENT] [SEVERE] Realms: Server not available!
+Client> 2013-09-27 22:49:13 [SERVER] [INFO] Starting integrated minecraft server version 1.6.4
+Client> 2013-09-27 22:49:13 [SERVER] [INFO] Generating keypair
+Client> 2013-09-27 22:49:13 [SERVER] [INFO] Preparing start region for level 0
+Client> loading single player
+Client> 2013-09-27 22:49:15 [SERVER] [INFO] Ted[/127.0.0.1:0] logged in with entity id 209 at (473.1299524441233, 63.9548426943359, 157.6486053242461)
+Client> 2013-09-27 22:49:15 [SERVER] [INFO] Ted joined the game
+Client> Setting up custom skins
+Client> java.net.UnknownHostException: skins.minecraft.net
+Client> 	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+Client> 	at java.net.PlainSocketImpl.connect(Unknown Source)
+Client> 	at java.net.SocksSocketImpl.connect(Unknown Source)
+Client> 	at java.net.Socket.connect(Unknown Source)
+Client> 	at java.net.Socket.connect(Unknown Source)
+Client> 	at sun.net.NetworkClient.doConnect(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.New(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.New(Unknown Source)
+Client> 	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+Client> 	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+Client> 	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+Client> 	at bid.run(SourceFile:68)
+Client> java.net.UnknownHostException: skins.minecraft.net
+Client> 	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+Client> 	at java.net.PlainSocketImpl.connect(Unknown Source)
+Client> 	at java.net.SocksSocketImpl.connect(Unknown Source)
+Client> 	at java.net.Socket.connect(Unknown Source)
+Client> 	at java.net.Socket.connect(Unknown Source)
+Client> 	at sun.net.NetworkClient.doConnect(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.New(Unknown Source)
+Client> 	at sun.net.www.http.HttpClient.New(Unknown Source)
+Client> 	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+Client> 	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+Client> 	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+Client> 	at bid.run(SourceFile:68)
+Client> 2013-09-27 22:49:17 [SERVER] [WARNING] Can't keep up! Did the system time change, or is the server overloaded?
+Client> 2013-09-27 22:49:17 [SERVER] [INFO] Saving and pausing game...
+Client> 2013-09-27 22:49:17 [SERVER] [INFO] Saving chunks for level 'Brave New World'/Overworld
+Client> 2013-09-27 22:49:17 [SERVER] [INFO] Saving chunks for level 'Brave New World'/Nether
+Client> 2013-09-27 22:49:17 [SERVER] [INFO] Saving chunks for level 'Brave New World'/The End
+Client> 2013-09-27 22:50:01 [SERVER] [INFO] Saving and pausing game...
+Client> 2013-09-27 22:50:01 [SERVER] [INFO] Saving chunks for level 'Brave New World'/Overworld
+Client> 2013-09-27 22:50:01 [SERVER] [INFO] Saving chunks for level 'Brave New World'/Nether
+Client> 2013-09-27 22:50:01 [SERVER] [INFO] Saving chunks for level 'Brave New World'/The End
+Client> #
+Client> # A fatal error has been detected by the Java Runtime Environment:
+Client> #
+Client> #  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000000c1c1c82, pid=2768, tid=2780
+Client> #
+Client> # JRE version: 7.0_25-b17
+Client> # Java VM: Java HotSpot(TM) 64-Bit Server VM (23.25-b01 mixed mode windows-amd64 compressed oops)
+Client> # Problematic frame:
+Client> # C  [ig75icd64.dll+0x1c82]
+Client> #
+Client> # Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+Client> #
+Client> # An error report file with more information is saved as:
+Client> # C:\Users\Ted\AppData\Roaming\.minecraft\hs_err_pid2768.log
+Client> #
+Client> # If you would like to submit a bug report, please visit:
+Client> #   http://bugreport.sun.com/bugreport/crash.jsp
+Client> # The crash happened outside the Java Virtual Machine in native code.
+Client> # See problematic frame for where to report the bug.
+Client> #
+Client> AL lib: (EE) alc_cleanup: 1 device not closed
+Game ended with bad state (exit code 1)
+Ignoring visibility rule and showing launcher due to a game crash
+Deleting C:\Users\Ted\AppData\Roaming\.minecraft\versions\1.6.4\1.6.4-natives-136465704148
+Couldn't delete C:\Users\Ted\AppData\Roaming\.minecraft\versions\1.6.4\1.6.4-natives-136465704148 - scheduling for deletion upon exit

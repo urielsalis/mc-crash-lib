@@ -1,0 +1,7 @@
+# Project exclude paths
+/.gradle/
+/build/
+.idea/
+/.kotest
+/out/
+/logs/

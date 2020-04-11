@@ -1,0 +1,70 @@
+-- Test section --
+From: https://bugs.mojang.com/secure/attachment/220466/crash-2019-05-28_11.44.54-client.txt
+
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 28/05/19 11:44
+Description: Manually triggered debug crash
+
+java.lang.Throwable
+	at cvi.b(SourceFile:530)
+	at cvk.m(SourceFile:1477)
+	at cvk.e(SourceFile:925)
+	at cvk.b(SourceFile:411)
+	at net.minecraft.client.main.Main.main(SourceFile:154)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at cvi.b(SourceFile:530)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [djx['20_Star_Strategy'/11, l='MpServer', x=-1329.33, y=64.00, z=-291.43]]
+	Chunk stats: MultiplayerChunkCache: 2025, 1521
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: {}
+	Level spawn location: World: (-208,63,-252), Chunk: (at 0,3,4 in -13,-16; contains blocks -208,0,-256 to -193,255,-241), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Level time: 11182273 game time, 15854704 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+	Server brand: vanilla
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at dhn.a(SourceFile:421)
+	at cvk.b(SourceFile:1923)
+	at cvk.b(SourceFile:426)
+	at net.minecraft.client.main.Main.main(SourceFile:154)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.14.2
+	Operating System: Mac OS X (x86_64) version 10.14.5
+	Java Version: 1.8.0_74, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1255515720 bytes (1197 MB) / 2046820352 bytes (1952 MB) up to 2147483648 bytes (2048 MB)
+	JVM Flags: 8 total; -Xss1M -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	Launched Version: 1.14.2
+	LWJGL: 3.2.1 build 12
+	OpenGL: AMD Radeon Pro 580 OpenGL Engine GL version 2.1 ATI-2.9.26, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because ARB_framebuffer_object is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Probably not. Jar signature remains and client brand is untouched.
+	Type: Client (map_client.txt)
+	Resource Packs: vanilla, file/ChromaHills-128x-1.14-v1
+	Current Language: English (United Kingdom)
+	CPU: 4x Intel(R) Core(TM) i5-7600K CPU @ 3.80GHz
