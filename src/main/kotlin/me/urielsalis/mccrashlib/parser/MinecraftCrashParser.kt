@@ -13,6 +13,7 @@ import me.urielsalis.mccrashlib.Crash
 const val crashReportSection = "Minecraft Crash Report"
 const val systemDetailsSection = "System Details"
 const val isModded = "Is Modded"
+const val minecraftVersion = "Minecraft Version"
 
 class MinecraftCrashParser : CrashParser {
     object SectionsNotFound : ParserError
@@ -28,9 +29,11 @@ class MinecraftCrashParser : CrashParser {
 
         return exception.fold(
             { Either.left(NoExceptionFound) },
-            { Either.right(Crash.Minecraft(isModded(details), it)) }
+            { Either.right(Crash.Minecraft(isModded(details), it, getMinecraftVersion(details))) }
         )
     }
+
+    private fun getMinecraftVersion(details: Map<String, String>) = details.getOrDefault(minecraftVersion, "Unknown")
 
     private fun isModded(details: Map<String, String>) =
         details.containsKey(isModded) && with(details[isModded] ?: error("Is Modded not found")) {
