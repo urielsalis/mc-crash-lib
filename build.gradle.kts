@@ -19,7 +19,6 @@ dependencies {
     implementation("io.arrow-kt", "arrow-syntax", arrowVersion)
     implementation("io.arrow-kt", "arrow-fx", arrowVersion)
 
-
     testCompile("junit", "junit", "4.12")
 }
 

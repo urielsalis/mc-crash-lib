@@ -18,8 +18,8 @@ class MinecraftCrashParser : CrashParser {
     object SectionsNotFound : ParserError
     object NoExceptionFound : ParserError
 
-    override fun parse(crash: List<String>): Either<ParserError, Crash> {
-        val sections = parseSections(crash)
+    override fun parse(lines: List<String>): Either<ParserError, Crash> {
+        val sections = parseSections(lines)
         if (!sections.containsKey(crashReportSection) || !sections.containsKey(systemDetailsSection)) {
             return Either.left(SectionsNotFound)
         }
