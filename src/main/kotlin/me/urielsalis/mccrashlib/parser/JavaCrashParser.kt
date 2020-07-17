@@ -15,7 +15,7 @@ class JavaCrashParser : CrashParser {
 
     override fun parse(lines: List<String>): Either<ParserError, Crash> {
         val linesWithMarker = lines.map(String::trim).filter { it.startsWith("#") }
-        val importantLine = linesWithMarker.firstOrNone { it.startsWith("# C") }
+        val importantLine = linesWithMarker.firstOrNone { it.startsWith("# C") && "[" in it && "+" in it }
         return importantLine.fold(
             { Either.left(IncompleteJavaCrash) },
             { Either.right(Crash.Java(it.substring(it.indexOf('[') + 1, it.indexOf('+')))) }
