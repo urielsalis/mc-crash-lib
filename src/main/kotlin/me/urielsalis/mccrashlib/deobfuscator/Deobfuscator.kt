@@ -50,7 +50,7 @@ fun isZipSlip(version: String): Boolean {
     val canonicalDestinationDir = mappingsFile.canonicalPath
     val destinationFile = File(mappingsFile, version)
     val canonicalDestinationFile = destinationFile.canonicalPath
-    return canonicalDestinationFile.startsWith(canonicalDestinationDir + File.separator)
+    return !canonicalDestinationFile.startsWith(canonicalDestinationDir + File.separator)
 }
 
 private fun downloadMapping(version: String, name: String, isClient: Boolean) {
