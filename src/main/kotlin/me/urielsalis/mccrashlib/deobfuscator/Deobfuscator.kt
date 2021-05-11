@@ -18,17 +18,26 @@ fun getDeobfuscation(modded: Boolean, version: String, content: String, isClient
     if (modded) {
         return null
     }
+
+    if (version.isBlank() || version.contains("\\") || version.contains("/")) {
+        return null
+    }
+
     val name = if (isClient) {
         "$version-client"
     } else {
         "$version-server"
     }
-    val mappingFile = File(mappingsFile, name)
-    if (!mappingFile.exists()) {
-        downloadMapping(version, name, isClient)
-    }
-    if (!mappingFile.exists()) {
-        return null
+
+    val mappingFile = synchronized(mappingsFile) {
+        val mappingFile = File(mappingsFile, name)
+        if (!mappingFile.exists()) {
+            downloadMapping(version, name, isClient)
+        }
+        if (!mappingFile.exists()) {
+            return null
+        }
+        mappingFile
     }
     val retrace = ReTrace(ReTrace.REGULAR_EXPRESSION, false, true, mappingFile)
     val stringWriter = StringWriter()
