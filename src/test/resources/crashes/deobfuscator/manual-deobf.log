@@ -1,0 +1,58 @@
+---- Minecraft Crash Report ----
+// Don't be sad, have a hug! <3
+
+Time: 5/7/21 10:32 AM
+Description: Manually triggered debug crash
+
+java.lang.Throwable
+	at net.minecraft.client.KeyboardHandler.void tick()(KeyboardHandler.java:458)
+	at net.minecraft.client.Minecraft.void tick()(Minecraft.java:1609)
+	at net.minecraft.client.Minecraft.void runTick(boolean)(Minecraft.java:1021)
+	at net.minecraft.client.Minecraft.void run()(Minecraft.java:681)
+	at net.minecraft.client.main.Main.void main(java.lang.String[])(Main.java:215)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.client.KeyboardHandler.void tick()(KeyboardHandler.java:458)
+
+-- Affected level --
+Details:
+	All players: 1 total; [dzm['urielsalis'/108758, l='ClientLevel', x=184.20, y=63.00, z=24.75]]
+	Chunk stats: Client Chunk Cache: 2025, 1599
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (17,64,-5), Chunk: (at 1,4,11 in 1,-1; contains blocks 16,0,-16 to 31,255,-1), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,0,-512 to 511,255,-1)
+	Level time: 3038 game time, 3038 day time
+	Server brand: vanilla
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.ClientLevel.net.minecraft.CrashReportCategory fillReportDetails(net.minecraft.CrashReport)(ClientLevel.java:449)
+	at net.minecraft.client.Minecraft.net.minecraft.CrashReport fillReport(net.minecraft.CrashReport)(Minecraft.java:2239)
+	at net.minecraft.client.Minecraft.void run()(Minecraft.java:699)
+	at net.minecraft.client.main.Main.void main(java.lang.String[])(Main.java:215)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_51, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 3887501048 bytes (3707 MB) / 6979321856 bytes (6656 MB) up to 8589934592 bytes (8192 MB)
+	CPUs: 16
+	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx8G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	Launched Version: 1.16.5
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: GeForce RTX 2060 SUPER/PCIe/SSE2 GL version 4.6.0 NVIDIA 456.71, NVIDIA Corporation
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Probably not. Jar signature remains and client brand is untouched.
+	Type: Client (map_client.txt)
+	Graphics mode: fabulous
+	Resource Packs:
+	Current Language: English (US)
+	CPU: 16x AMD Ryzen 7 3700X 8-Core Processor

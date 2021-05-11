@@ -3,6 +3,7 @@ package me.urielsalis.mccrashlib.parser
 import arrow.core.Either
 import arrow.core.Option
 import me.urielsalis.mccrashlib.Crash
+import me.urielsalis.mccrashlib.deobfuscator.getDeobfuscation
 
 /*
     Minecraft crashes are separated into sections starting and ending with --
@@ -14,6 +15,7 @@ const val crashReportSection = "Minecraft Crash Report"
 const val systemDetailsSection = "System Details"
 const val isModded = "Is Modded"
 const val minecraftVersion = "Minecraft Version"
+const val typeSection = "Type"
 
 class MinecraftCrashParser : CrashParser {
     object SectionsNotFound : ParserError
@@ -26,14 +28,19 @@ class MinecraftCrashParser : CrashParser {
         }
         val details = getDetails(sections[systemDetailsSection] ?: error("System details section not found"))
         val exception = getException(sections[crashReportSection] ?: error("Crash report section not found"))
-
+        val isModded = isModded(details)
+        val version = getMinecraftVersion(details)
+        val type = getType(details)
+        val isClient = type == "Client"
+        val deobf = getDeobfuscation(isModded, version, lines.joinToString("\n"), isClient)
         return exception.fold(
             { Either.left(NoExceptionFound) },
-            { Either.right(Crash.Minecraft(isModded(details), it, getMinecraftVersion(details))) }
+            { Either.right(Crash.Minecraft(isModded, it, version, deobf)) }
         )
     }
 
-    private fun getMinecraftVersion(details: Map<String, String>) = details.getOrDefault(minecraftVersion, "Unknown")
+    private fun getMinecraftVersion(details: Map<String, String>) = details.getOrDefault(minecraftVersion, "Unknown").trim()
+    private fun getType(details: Map<String, String>) = details.getOrDefault(typeSection, "Client").trim().substringBefore(" ")
 
     private fun isModded(details: Map<String, String>) =
         details.containsKey(isModded) && with(details[isModded] ?: error("Is Modded not found")) {

@@ -1,0 +1,112 @@
+---- Minecraft Crash Report ----
+// Don't do that.
+
+Time: 30/04/21 17:23
+Description: mouseClicked event handler
+
+java.lang.OutOfMemoryError: Java heap space
+	at java.util.ArrayList.null <init>(null)(ArrayList.java:152)
+	at com.google.common.collect.Lists.null newArrayListWithCapacity(null)(Lists.java:190)
+	at net.minecraft.nbt.ListTag$1.net.minecraft.nbt.ListTag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(ListTag.java:47)
+	at net.minecraft.nbt.ListTag$1.net.minecraft.nbt.Tag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(ListTag.java:32)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag readNamedTagData(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:471)
+	at net.minecraft.nbt.CompoundTag.byte access$000(java.io.DataInput,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag access$200(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.CompoundTag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:83)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.Tag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:69)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag readNamedTagData(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:471)
+	at net.minecraft.nbt.CompoundTag.byte access$000(java.io.DataInput,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag access$200(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.CompoundTag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:83)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.Tag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:69)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag readNamedTagData(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:471)
+	at net.minecraft.nbt.CompoundTag.byte access$000(java.io.DataInput,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag access$200(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.CompoundTag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:83)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.Tag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:69)
+	at net.minecraft.nbt.NbtIo.net.minecraft.nbt.Tag readUnnamedTag(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(NbtIo.java:108)
+	at net.minecraft.nbt.NbtIo.net.minecraft.nbt.CompoundTag read(java.io.DataInput,net.minecraft.nbt.NbtAccounter)(NbtIo.java:75)
+	at net.minecraft.nbt.NbtIo.net.minecraft.nbt.CompoundTag readCompressed(java.io.InputStream)(NbtIo.java:32)
+	at net.minecraft.nbt.NbtIo.net.minecraft.nbt.CompoundTag readCompressed(java.io.File)(NbtIo.java:26)
+	at net.minecraft.world.level.storage.LevelStorageSource.net.minecraft.world.level.storage.LevelSummary lambda$levelSummaryReader$5(java.io.File,boolean,java.io.File,com.mojang.datafixers.DataFixer)(LevelStorageSource.java:229)
+	at cyg$$Lambda$2987/857564250.apply(Unknown Source)
+	at net.minecraft.world.level.storage.LevelStorageSource.java.lang.Object readLevelData(java.io.File,java.util.function.BiFunction)(LevelStorageSource.java:178)
+	at net.minecraft.world.level.storage.LevelStorageSource.java.util.List getLevelList()(LevelStorageSource.java:157)
+	at net.minecraft.client.gui.screens.worldselection.WorldSelectionList.void refreshList(java.util.function.Supplier,boolean)(WorldSelectionList.java:91)
+	at net.minecraft.client.gui.screens.worldselection.WorldSelectionList.void <init>(net.minecraft.client.gui.screens.worldselection.SelectWorldScreen,net.minecraft.client.Minecraft,int,int,int,int,int,java.util.function.Supplier,net.minecraft.client.gui.screens.worldselection.WorldSelectionList)(WorldSelectionList.java:83)
+	at net.minecraft.client.gui.screens.worldselection.SelectWorldScreen.void init()(SelectWorldScreen.java:48)
+	at net.minecraft.client.gui.screens.Screen.void init(net.minecraft.client.Minecraft,int,int)(Screen.java:325)
+	at net.minecraft.client.Minecraft.void setScreen(net.minecraft.client.gui.screens.Screen)(Minecraft.java:922)
+	at net.minecraft.client.gui.screens.TitleScreen.void lambda$createNormalMenuOptions$4(net.minecraft.client.gui.components.Button)(TitleScreen.java:141)
+	at doy$$Lambda$2670/1502984812.onPress(Unknown Source)
+	at net.minecraft.client.gui.components.Button.void onPress()(Button.java:33)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at java.util.ArrayList.null <init>(null)(ArrayList.java:152)
+	at com.google.common.collect.Lists.null newArrayListWithCapacity(null)(Lists.java:190)
+	at net.minecraft.nbt.ListTag$1.net.minecraft.nbt.ListTag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(ListTag.java:47)
+	at net.minecraft.nbt.ListTag$1.net.minecraft.nbt.Tag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(ListTag.java:32)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag readNamedTagData(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:471)
+	at net.minecraft.nbt.CompoundTag.byte access$000(java.io.DataInput,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag access$200(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.CompoundTag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:83)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.Tag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:69)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag readNamedTagData(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:471)
+	at net.minecraft.nbt.CompoundTag.byte access$000(java.io.DataInput,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag access$200(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.CompoundTag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:83)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.Tag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:69)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag readNamedTagData(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:471)
+	at net.minecraft.nbt.CompoundTag.byte access$000(java.io.DataInput,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag.net.minecraft.nbt.Tag access$200(net.minecraft.nbt.TagType,java.lang.String,java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:32)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.CompoundTag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:83)
+	at net.minecraft.nbt.CompoundTag$1.net.minecraft.nbt.Tag load(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(CompoundTag.java:69)
+	at net.minecraft.nbt.NbtIo.net.minecraft.nbt.Tag readUnnamedTag(java.io.DataInput,int,net.minecraft.nbt.NbtAccounter)(NbtIo.java:108)
+	at net.minecraft.nbt.NbtIo.net.minecraft.nbt.CompoundTag read(java.io.DataInput,net.minecraft.nbt.NbtAccounter)(NbtIo.java:75)
+
+-- Affected screen --
+Details:
+	Screen name: net.minecraft.client.gui.screens.TitleScreen
+Stacktrace:
+	at net.minecraft.client.gui.screens.Screen.void wrapScreenError(java.lang.Runnable,java.lang.String,java.lang.String)(Screen.java:438)
+	at net.minecraft.client.MouseHandler.void onPress(long,int,int,int)(MouseHandler.java:92)
+	at net.minecraft.client.MouseHandler.void lambda$null$4(long,int,int,int)(MouseHandler.java:162)
+	at dka$$Lambda$2975/534027987.run(Unknown Source)
+	at net.minecraft.util.thread.BlockableEventLoop.void execute(java.lang.Runnable)(BlockableEventLoop.java:94)
+	at net.minecraft.client.MouseHandler.void lambda$setup$5(long,int,int,int)(MouseHandler.java:162)
+	at dka$$Lambda$2334/656802017.invoke(Unknown Source)
+	at org.lwjgl.glfw.GLFWMouseButtonCallbackI.null callback(null)(GLFWMouseButtonCallbackI.java:36)
+	at org.lwjgl.system.JNI.null invokeV(null)(JNI.java)
+	at org.lwjgl.glfw.GLFW.null glfwWaitEventsTimeout(null)(GLFW.java:3174)
+	at com.mojang.blaze3d.systems.RenderSystem.void limitDisplayFPS(int)(RenderSystem.java:127)
+	at net.minecraft.client.Minecraft.void runTick(boolean)(Minecraft.java:1071)
+	at net.minecraft.client.Minecraft.void run()(Minecraft.java:681)
+	at net.minecraft.client.main.Main.void main(java.lang.String[])(Main.java:215)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_51, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 546749712 bytes (521 MB) / 771751936 bytes (736 MB) up to 2147483648 bytes (2048 MB)
+	CPUs: 4
+	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	Launched Version: 1.16.5
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: GeForce GTX 1050 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 456.71, NVIDIA Corporation
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Probably not. Jar signature remains and client brand is untouched.
+	Type: Client (map_client.txt)
+	Graphics mode: fast
+	Resource Packs: vanilla
+	Current Language: English (US)
+	CPU: 4x Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz

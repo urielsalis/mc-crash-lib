@@ -1,0 +1,128 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 11/01/21 09:53 AM
+Description: Manually triggered debug crash
+
+java.lang.Throwable
+	at net.minecraft.class_309.method_1474(class_309.java:663)
+	at net.minecraft.class_310.method_1574(class_310.java:1609)
+	at net.minecraft.class_310.method_1523(class_310.java:1021)
+	at net.minecraft.class_310.method_1514(class_310.java:681)
+	at net.minecraft.client.main.Main.main(Main.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at net.fabricmc.loader.game.MinecraftGameProvider.launch(MinecraftGameProvider.java:224)
+	at net.fabricmc.loader.launch.knot.Knot.init(Knot.java:141)
+	at net.fabricmc.loader.launch.knot.KnotClient.main(KnotClient.java:27)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.class_309.method_1474(class_309.java:663)
+
+-- Affected level --
+Details:
+	All players: 1 total; [class_746['STRAYHARBORXD'/167, l='ClientLevel', x=-141.70, y=66.00, z=-178.04]]
+	Chunk stats: Client Chunk Cache: 841, 552
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (-128,64,-176), Chunk: (at 0,4,0 in -8,-11; contains blocks -128,0,-176 to -113,255,-161), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Level time: 8395 game time, 8395 day time
+	Server brand: fabric
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.class_638.method_8538(class_638.java:617)
+	at net.minecraft.class_310.method_1587(class_310.java:2239)
+	at net.minecraft.class_310.method_1514(class_310.java:699)
+	at net.minecraft.client.main.Main.main(Main.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at net.fabricmc.loader.game.MinecraftGameProvider.launch(MinecraftGameProvider.java:224)
+	at net.fabricmc.loader.launch.knot.Knot.init(Knot.java:141)
+	at net.fabricmc.loader.launch.knot.KnotClient.main(KnotClient.java:27)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.4
+	Minecraft Version ID: 1.16.4
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_51, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 719086568 bytes (685 MB) / 1912602624 bytes (1824 MB) up to 2147483648 bytes (2048 MB)
+	CPUs: 4
+	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	Fabric Mods:
+		fabric: Fabric API 0.29.3+1.16
+		fabric-api-base: Fabric API Base 0.2.0+ab87788d3a
+		fabric-biome-api-v1: Fabric Biome API (v1) 3.1.0+2e23b97c3a
+		fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.4+6a2618f53a
+		fabric-command-api-v1: Fabric Command API (v1) 1.0.9+6a2618f53a
+		fabric-commands-v0: Fabric Commands (v0) 0.2.1+cbe9176f3a
+		fabric-containers-v0: Fabric Containers (v0) 0.1.9+a03e98793a
+		fabric-content-registries-v0: Fabric Content Registries (v0) 0.2.0+e77439c73a
+		fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.1.2+b7f9825d3a
+		fabric-dimensions-v1: fabric-dimensions-v1 2.0.1+9a6c75813a
+		fabric-entity-events-v1: Fabric Entity Events (v1) 1.0.2+8004b36d3a
+		fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.4.1+6a2618f53a
+		fabric-events-lifecycle-v0: Fabric Events Lifecycle (v0) 0.2.0+6a2618f53a
+		fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.5+cbe9176f3a
+		fabric-item-api-v1: Fabric Item API (v1) 1.2.0+6a2618f53a
+		fabric-item-groups-v0: Fabric Item Groups (v0) 0.2.2+cbe9176f3a
+		fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.1+730711c63a
+		fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.0+3fa9f7c53a
+		fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 1.2.0+ffb68a873a
+		fabric-loot-tables-v1: Fabric Loot Tables (v1) 1.0.1+6a2618f53a
+		fabric-mining-levels-v0: Fabric Mining Levels (v0) 0.1.2+6a2618f53a
+		fabric-models-v0: Fabric Models (v0) 0.2.0+cbe9176f3a
+		fabric-networking-api-v1: Fabric Networking API (v1) 1.0.0+4358fbc63a
+		fabric-networking-blockentity-v0: Fabric Networking Block Entity (v0) 0.2.7+a03e98793a
+		fabric-networking-v0: Fabric Networking (v0) 0.3.1+2a4333d33a
+		fabric-object-builder-api-v1: Fabric Object Builder API (v1) 1.9.2+6a2618f53a
+		fabric-object-builders-v0: Fabric Object Builders (v0) 0.7.1+6a2618f53a
+		fabric-particles-v1: Fabric Particles (v1) 0.2.3+cbe9176f3a
+		fabric-registry-sync-v0: Fabric Registry Sync (v0) 0.7.3+be155ae23a
+		fabric-renderer-api-v1: Fabric Renderer API (v1) 0.4.0+cbe9176f3a
+		fabric-renderer-indigo: Fabric Renderer - Indigo 0.4.3+6a2618f53a
+		fabric-renderer-registries-v1: Fabric Renderer Registries (v1) 2.2.0+6a2618f53a
+		fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.1.4+6a2618f53a
+		fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 0.1.12+6a2618f53a
+		fabric-rendering-v0: Fabric Rendering (v0) 1.1.1+6a2618f53a
+		fabric-rendering-v1: Fabric Rendering (v1) 1.5.0+c26373133a
+		fabric-resource-loader-v0: Fabric Resource Loader (v0) 0.4.1+0d4d7e343a
+		fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.1.0+6a2618f53a
+		fabric-structure-api-v1: Fabric Structure API (v1) 1.1.3+cbe9176f3a
+		fabric-tag-extensions-v0: Fabric Tag Extensions (v0) 1.1.0+e77439c73a
+		fabric-textures-v0: Fabric Textures (v0) 1.0.5+6a2618f53a
+		fabric-tool-attribute-api-v1: Fabric Tool Attribute API (v1) 1.2.5+6a2618f53a
+		fabricloader: Fabric Loader 0.10.8
+		minecraft: Minecraft 1.16.4
+		mm: Manningham Mills 2.1
+		optifabric: OptiFabric 1.8.16
+		replaymod: Replay Mod 1.16.4-2.5.1
+	Launched Version: fabric-loader-0.10.8-1.16.4
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: Intel(R) HD Graphics 5500 GL version 4.4.0 - Build 20.19.15.5058, Intel
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fabric'
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: replaymod_lang (incompatible), vanilla, Fabric Mods
+	Current Language: Español (México)
+	CPU: 4x Intel(R) Core(TM) i5-5300U CPU @ 2.30GHz
+
+-- OptiFabric --
+Details:
+	OptiFine jar designed for: 1.16.4
+	OptiFine jar version: OptiFine_1.16.4_HD_U_G5
+	OptiFine jar status: Valid OptiFine installer
+	OptiFine remapped jar: C:\Users\dell\AppData\Roaming\.minecraft\.optifine\OptiFine_1.16.4_HD_U_G5\Optifine-mapped.jar
+	OptiFabric error: <None>
