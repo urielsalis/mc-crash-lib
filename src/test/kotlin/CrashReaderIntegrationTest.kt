@@ -1,6 +1,7 @@
 import arrow.core.Either
 import me.urielsalis.mccrashlib.Crash
 import me.urielsalis.mccrashlib.CrashReader
+import me.urielsalis.mccrashlib.parser.ParserError
 import org.junit.Test
 import java.io.File
 
@@ -53,5 +54,30 @@ class CrashReaderIntegrationTest {
             val crash = (crashEither as Either.Right).b
             assert(crash is Crash.LauncherLog)
         }
+    }
+
+    @Test
+    fun shouldProcessDeobfuscation() {
+        val crashes = File(this::class.java.getResource("crashes/deobfuscator").file).listFiles()
+
+        crashes.forEach {
+            if (!it.nameWithoutExtension.endsWith("deobf")) {
+                val either = crashReader.processCrash(it.readLines())
+                val content = File(it.parent, it.nameWithoutExtension + "-deobf.log")
+                if (content.exists()) {
+                    assertDeobf(either, content.readText())
+                } else {
+                    assertDeobf(either, null)
+                }
+            }
+        }
+    }
+
+    private fun assertDeobf(either: Either<ParserError, Crash>, content: String?) {
+        assert(either is Either.Right)
+        val crash = (either as Either.Right).b
+        assert(crash is Crash.Minecraft)
+        val minecraft = crash as Crash.Minecraft
+        assert(minecraft.deobf?.dropLast(1) == content)
     }
 }
