@@ -1,7 +1,7 @@
 plugins {
     java
     id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
-    kotlin("jvm") version "1.4.21",
+    kotlin("jvm") version "1.4.21"
     maven
 }
 
