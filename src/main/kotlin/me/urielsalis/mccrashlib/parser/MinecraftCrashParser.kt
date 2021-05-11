@@ -35,7 +35,17 @@ class MinecraftCrashParser : CrashParser {
         val deobf = getDeobfuscation(isModded, version, lines.joinToString("\n"), isClient)
         return exception.fold(
             { Either.left(NoExceptionFound) },
-            { Either.right(Crash.Minecraft(isModded, it, version, deobf)) }
+            {
+                Either.right(
+                    Crash.Minecraft(
+                        isModded,
+                        it,
+                        version,
+                        deobf,
+                        getException(deobf?.split("\n") ?: emptyList()).orNull()
+                    )
+                )
+            }
         )
     }
 
