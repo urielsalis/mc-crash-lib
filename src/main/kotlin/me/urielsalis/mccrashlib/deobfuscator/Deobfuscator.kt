@@ -19,7 +19,7 @@ fun getDeobfuscation(modded: Boolean, version: String, content: String, isClient
         return null
     }
 
-    if (version.isBlank() || version.contains("\\") || version.contains("/")) {
+    if (version.isBlank() || version.contains("\\") || version.contains("/") || isZipSlip(version)) {
         return null
     }
 
@@ -44,6 +44,13 @@ fun getDeobfuscation(modded: Boolean, version: String, content: String, isClient
     val printWriter = PrintWriter(stringWriter)
     retrace.retrace(LineNumberReader(StringReader(content)), printWriter)
     return stringWriter.toString()
+}
+
+fun isZipSlip(version: String): Boolean {
+    val canonicalDestinationDir = mappingsFile.canonicalPath
+    val destinationFile = File(mappingsFile, version)
+    val canonicalDestinationFile = destinationFile.canonicalPath
+    return canonicalDestinationFile.startsWith(canonicalDestinationDir + File.separator)
 }
 
 private fun downloadMapping(version: String, name: String, isClient: Boolean) {
