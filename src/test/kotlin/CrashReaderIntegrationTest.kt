@@ -4,9 +4,11 @@ import me.urielsalis.mccrashlib.CrashReader
 import me.urielsalis.mccrashlib.parser.ParserError
 import org.junit.Test
 import java.io.File
+import java.nio.file.Files
 
 class CrashReaderIntegrationTest {
     val crashReader = CrashReader()
+    val tempDir = Files.createTempDirectory("mappings").toFile()
 
     @Test
     fun shouldRunAllMinecraftCrashes() {
@@ -18,7 +20,7 @@ class CrashReaderIntegrationTest {
             val isModded = parts[0] == "true"
             val expectedException = parts[1]
 
-            val crashEither = crashReader.processCrash(it.readLines())
+            val crashEither = crashReader.processCrash(it.readLines(), tempDir)
             assert(crashEither is Either.Right)
             val crash = (crashEither as Either.Right).b
             assert(crash is Crash.Minecraft)
@@ -36,7 +38,7 @@ class CrashReaderIntegrationTest {
             val parts = name.split("-")
             val expectedCode = parts[0]
 
-            val crashEither = crashReader.processCrash(it.readLines())
+            val crashEither = crashReader.processCrash(it.readLines(), tempDir)
             assert(crashEither is Either.Right)
             val crash = (crashEither as Either.Right).b
             assert(crash is Crash.Java)
@@ -49,7 +51,7 @@ class CrashReaderIntegrationTest {
         val crashes = File(this::class.java.getResource("crashes/log").file).listFiles()
 
         crashes.forEach {
-            val crashEither = crashReader.processCrash(it.readLines())
+            val crashEither = crashReader.processCrash(it.readLines(), tempDir)
             assert(crashEither is Either.Right)
             val crash = (crashEither as Either.Right).b
             assert(crash is Crash.LauncherLog)
@@ -62,7 +64,7 @@ class CrashReaderIntegrationTest {
 
         crashes.forEach {
             if (!it.nameWithoutExtension.endsWith("deobf")) {
-                val either = crashReader.processCrash(it.readLines())
+                val either = crashReader.processCrash(it.readLines(), tempDir)
                 val content = File(it.parent, it.nameWithoutExtension + "-deobf.log")
                 if (content.exists()) {
                     assertDeobf(either, content.readText())
