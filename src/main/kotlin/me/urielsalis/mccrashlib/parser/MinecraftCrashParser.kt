@@ -4,6 +4,7 @@ import arrow.core.Either
 import arrow.core.Option
 import me.urielsalis.mccrashlib.Crash
 import me.urielsalis.mccrashlib.deobfuscator.getDeobfuscation
+import java.io.File
 
 /*
     Minecraft crashes are separated into sections starting and ending with --
@@ -21,7 +22,7 @@ class MinecraftCrashParser : CrashParser {
     object SectionsNotFound : ParserError
     object NoExceptionFound : ParserError
 
-    override fun parse(lines: List<String>): Either<ParserError, Crash> {
+    override fun parse(lines: List<String>, mappingsDirectory: File): Either<ParserError, Crash> {
         val sections = parseSections(lines)
         if (!sections.containsKey(crashReportSection) || !sections.containsKey(systemDetailsSection)) {
             return Either.left(SectionsNotFound)
@@ -32,7 +33,7 @@ class MinecraftCrashParser : CrashParser {
         val version = getMinecraftVersion(details)
         val type = getType(details)
         val isClient = type == "Client"
-        val deobf = getDeobfuscation(isModded, version, lines.joinToString("\n"), isClient)
+        val deobf = getDeobfuscation(isModded, version, lines.joinToString("\n"), isClient, mappingsDirectory)
         return exception.fold(
             { Either.left(NoExceptionFound) },
             {

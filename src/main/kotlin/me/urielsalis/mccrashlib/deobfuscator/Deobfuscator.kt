@@ -10,16 +10,13 @@ import java.io.StringReader
 import java.io.StringWriter
 import java.net.HttpURLConnection
 import java.net.URL
-import java.nio.file.Files
 
-val mappingsFile = Files.createTempDirectory("mappings").toFile()
-
-fun getDeobfuscation(modded: Boolean, version: String, content: String, isClient: Boolean): String? {
+fun getDeobfuscation(modded: Boolean, version: String, content: String, isClient: Boolean, mappingsDirectory: File): String? {
     if (modded) {
         return null
     }
 
-    if (version.isBlank() || version.contains("\\") || version.contains("/") || isZipSlip(version)) {
+    if (version.isBlank() || version.contains("\\") || version.contains("/") || isZipSlip(version, mappingsDirectory)) {
         return null
     }
 
@@ -29,10 +26,10 @@ fun getDeobfuscation(modded: Boolean, version: String, content: String, isClient
         "$version-server"
     }
 
-    val mappingFile = synchronized(mappingsFile) {
-        val mappingFile = File(mappingsFile, name)
+    val mappingFile = synchronized(mappingsDirectory) {
+        val mappingFile = File(mappingsDirectory, name)
         if (!mappingFile.exists()) {
-            downloadMapping(version, name, isClient)
+            downloadMapping(version, name, isClient, mappingsDirectory)
         }
         if (!mappingFile.exists()) {
             return null
@@ -46,14 +43,14 @@ fun getDeobfuscation(modded: Boolean, version: String, content: String, isClient
     return stringWriter.toString()
 }
 
-fun isZipSlip(version: String): Boolean {
-    val canonicalDestinationDir = mappingsFile.canonicalPath
-    val destinationFile = File(mappingsFile, version)
+fun isZipSlip(version: String, mappingsDirectory: File): Boolean {
+    val canonicalDestinationDir = mappingsDirectory.canonicalPath
+    val destinationFile = File(mappingsDirectory, version)
     val canonicalDestinationFile = destinationFile.canonicalPath
     return !canonicalDestinationFile.startsWith(canonicalDestinationDir + File.separator)
 }
 
-private fun downloadMapping(version: String, name: String, isClient: Boolean) {
+private fun downloadMapping(version: String, name: String, isClient: Boolean, mappingsDirectory: File) {
     val mapper = jacksonObjectMapper()
     val manifest = mapper
         .readValue(URL("https://launchermeta.mojang.com/mc/game/version_manifest.json"), VersionManifest::class.java)
@@ -67,14 +64,14 @@ private fun downloadMapping(version: String, name: String, isClient: Boolean) {
     if (mappingUrl == null) {
         return
     }
-    downloadFile(mappingUrl, name)
+    downloadFile(mappingUrl, name, mappingsDirectory)
 }
 
-fun downloadFile(url: String, name: String) {
+fun downloadFile(url: String, name: String, mappingsDirectory: File) {
     val connection: HttpURLConnection = URL(url).openConnection() as HttpURLConnection
     connection.requestMethod = "GET"
     val stream = connection.inputStream
-    val file = File(mappingsFile, name)
+    val file = File(mappingsDirectory, name)
     file.createNewFile()
     val out = FileOutputStream(file)
     stream.transferTo(out)
