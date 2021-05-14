@@ -15,20 +15,27 @@ import java.net.http.HttpRequest
 import java.net.http.HttpResponse
 import java.time.Duration
 
-private fun getMappingFile(mappingsDirectory: File, version: String, isClient: Boolean): File? {
+// Note: Also used by Arisa (https://github.com/mojira/arisa-kt)
+/**
+ * Gets the path of a file or directory called `childName` within the `directory`.
+ * If the child name is malformed (e.g. empty) or malicious and would result in a location outside the intended
+ * directory, `null` is returned.
+ *
+ * @param directory
+ *      Parent directory
+ * @param childName
+ *      Name of the child file or directory in `directory`
+ * @return
+ *      Path of the child, or `null` if the path would not be safe
+ */
+fun getSafeChildPath(directory: File, childName: String): File? {
     // Reject malformed or malicious names
-    if (version.isBlank() || version.contains("\\") || version.contains("/")) {
+    if (childName.isBlank() || childName.contains("\\") || childName.contains("/")) {
         return null
     }
 
-    val name = if (isClient) {
-        "$version-client.txt"
-    } else {
-        "$version-server.txt"
-    }
-
-    val canonicalDestinationDir = mappingsDirectory.canonicalPath
-    val destinationFile = File(mappingsDirectory, name)
+    val canonicalDestinationDir = directory.canonicalPath
+    val destinationFile = File(directory, childName)
     val canonicalDestinationFile = destinationFile.canonicalPath
     // Reject if file would be outside intended directory
     // Based on Zip Slip mitigation, see https://snyk.io/research/zip-slip-vulnerability#java
@@ -36,6 +43,16 @@ private fun getMappingFile(mappingsDirectory: File, version: String, isClient: B
         return null
     }
     return destinationFile
+}
+
+private fun getMappingFile(mappingsDirectory: File, version: String, isClient: Boolean): File? {
+    val name = if (isClient) {
+        "$version-client.txt"
+    } else {
+        "$version-server.txt"
+    }
+
+    return getSafeChildPath(mappingsDirectory, name)
 }
 
 fun getDeobfuscation(
