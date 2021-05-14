@@ -1,85 +1,108 @@
 import arrow.core.Either
 import me.urielsalis.mccrashlib.Crash
 import me.urielsalis.mccrashlib.CrashReader
-import me.urielsalis.mccrashlib.parser.ParserError
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.extension.ExtensionContext
+import org.junit.jupiter.api.io.TempDir
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.ArgumentsProvider
+import org.junit.jupiter.params.provider.ArgumentsSource
+import org.junit.jupiter.params.support.AnnotationConsumer
 import java.io.File
 import java.nio.file.Files
+import java.nio.file.Path
+import java.util.stream.Stream
+import kotlin.streams.toList
 
 class CrashReaderIntegrationTest {
-    val crashReader = CrashReader()
-    val tempDir = Files.createTempDirectory("mappings").toFile()
+    @Target(AnnotationTarget.FUNCTION)
+    @Retention(AnnotationRetention.RUNTIME)
+    @ArgumentsSource(ResourceFilesProvider::class)
+    annotation class ResourceFilesSource(val directory: String, val ignoredNameSuffixes: Array<String> = [])
 
-    @Test
-    fun shouldRunAllMinecraftCrashes() {
-        val crashes = File(this::class.java.getResource("crashes/minecraft").file).listFiles()
+    class ResourceFilesProvider : ArgumentsProvider, AnnotationConsumer<ResourceFilesSource> {
+        private lateinit var directory: String
+        private lateinit var ignoredNameSuffixes: Array<String>
 
-        crashes.forEach {
-            val name = it.name
-            val parts = name.split("-")
-            val isModded = parts[0] == "true"
-            val expectedException = parts[1]
+        override fun accept(t: ResourceFilesSource?) {
+            directory = t!!.directory
+            ignoredNameSuffixes = t.ignoredNameSuffixes
+        }
 
-            val crashEither = crashReader.processCrash(it.readLines(), tempDir)
-            assert(crashEither is Either.Right)
-            val crash = (crashEither as Either.Right).b
-            assert(crash is Crash.Minecraft)
-            assert((crash as Crash.Minecraft).modded == isModded)
-            assert(crash.exception.contains(expectedException))
+        override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
+            val resourceUrl = this::class.java.getResource(directory)
+                ?: throw IllegalArgumentException("Resource directory '$directory' does not exist")
+
+            return Files.list(Path.of(resourceUrl.toURI()))
+                .filter(Files::isRegularFile)
+                .map(Path::toFile)
+                .filter { file -> !ignoredNameSuffixes.any { file.nameWithoutExtension.endsWith(it) } }
+                .map(Arguments::of)
+                // Files.list stream must be closed, therefore collect to list, then return stream
+                .use { it.toList().stream() }
         }
     }
 
-    @Test
-    fun shouldRunAllJavaCrashes() {
-        val crashes = File(this::class.java.getResource("crashes/java").file).listFiles()
+    private val crashReader = CrashReader()
 
-        crashes.forEach {
-            val name = it.name
-            val parts = name.split("-")
-            val expectedCode = parts[0]
+    @TempDir
+    lateinit var tempDir: File
 
-            val crashEither = crashReader.processCrash(it.readLines(), tempDir)
-            assert(crashEither is Either.Right)
-            val crash = (crashEither as Either.Right).b
-            assert(crash is Crash.Java)
-            assert((crash as Crash.Java).code == expectedCode)
-        }
+    @ParameterizedTest
+    @ResourceFilesSource("crashes/minecraft")
+    fun shouldRunAllMinecraftCrashes(crashFile: File) {
+        val name = crashFile.name
+        val parts = name.split("-")
+        val isModded = parts[0] == "true"
+        val expectedException = parts[1]
+
+        val crashEither = crashReader.processCrash(crashFile.readLines(), tempDir)
+        assertTrue(crashEither is Either.Right)
+        val crash = (crashEither as Either.Right).b
+        assertTrue(crash is Crash.Minecraft)
+        assertEquals(isModded, (crash as Crash.Minecraft).modded)
+        assertTrue(crash.exception.contains(expectedException))
     }
 
-    @Test
-    fun shouldRunAllLogs() {
-        val crashes = File(this::class.java.getResource("crashes/log").file).listFiles()
+    @ParameterizedTest
+    @ResourceFilesSource("crashes/java")
+    fun shouldRunAllJavaCrashes(crashFile: File) {
+        val name = crashFile.name
+        val parts = name.split("-")
+        val expectedCode = parts[0]
 
-        crashes.forEach {
-            val crashEither = crashReader.processCrash(it.readLines(), tempDir)
-            assert(crashEither is Either.Right)
-            val crash = (crashEither as Either.Right).b
-            assert(crash is Crash.LauncherLog)
-        }
+        val crashEither = crashReader.processCrash(crashFile.readLines(), tempDir)
+        assertTrue(crashEither is Either.Right)
+        val crash = (crashEither as Either.Right).b
+        assertTrue(crash is Crash.Java)
+        assertEquals(expectedCode, (crash as Crash.Java).code)
     }
 
-    @Test
-    fun shouldProcessDeobfuscation() {
-        val crashes = File(this::class.java.getResource("crashes/deobfuscator").file).listFiles()
-
-        crashes.forEach {
-            if (!it.nameWithoutExtension.endsWith("deobf")) {
-                val either = crashReader.processCrash(it.readLines(), tempDir)
-                val content = File(it.parent, it.nameWithoutExtension + "-deobf.log")
-                if (content.exists()) {
-                    assertDeobf(either, content.readText())
-                } else {
-                    assertDeobf(either, null)
-                }
-            }
-        }
+    @ParameterizedTest
+    @ResourceFilesSource("crashes/log")
+    fun shouldRunAllLogs(crashFile: File) {
+        val crashEither = crashReader.processCrash(crashFile.readLines(), tempDir)
+        assertTrue(crashEither is Either.Right)
+        val crash = (crashEither as Either.Right).b
+        assertTrue(crash is Crash.LauncherLog)
     }
 
-    private fun assertDeobf(either: Either<ParserError, Crash>, content: String?) {
-        assert(either is Either.Right)
+    /** Removes either a trailing `\r\n`, `\n` or `\r`. */
+    private fun String.dropLastLineTerminator() = removeSuffix("\n").removeSuffix("\r")
+
+    @ParameterizedTest
+    @ResourceFilesSource("crashes/deobfuscator", ignoredNameSuffixes = ["deobf"])
+    fun shouldProcessDeobfuscation(crashFile: File) {
+        val either = crashReader.processCrash(crashFile.readLines(), tempDir)
+        val deobfContent = File(crashFile.parent, crashFile.nameWithoutExtension + "-deobf.log")
+            .takeIf(File::isFile)?.readText()
+
+        assertTrue(either is Either.Right)
         val crash = (either as Either.Right).b
-        assert(crash is Crash.Minecraft)
+        assertTrue(crash is Crash.Minecraft)
         val minecraft = crash as Crash.Minecraft
-        assert(minecraft.deobf?.dropLast(1) == content)
+        assertEquals(deobfContent, minecraft.deobf?.dropLastLineTerminator())
     }
 }

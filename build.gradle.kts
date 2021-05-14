@@ -22,17 +22,25 @@ dependencies {
     implementation("com.guardsquare", "proguard-retrace", "7.1.0-beta3")
     implementation("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.12.+")
 
-    testImplementation("junit", "junit", "4.12")
+    testImplementation("org.junit.jupiter", "junit-jupiter", "5.7.1")
 }
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_11
 }
+
 tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = "11"
     }
     compileTestKotlin {
         kotlinOptions.jvmTarget = "11"
+    }
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
     }
 }
