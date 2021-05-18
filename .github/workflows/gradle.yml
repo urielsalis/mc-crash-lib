@@ -23,14 +23,6 @@ jobs:
         java-version: 11
         distribution: 'adopt'
     - uses: actions/checkout@v2
-    - name: Restore gradle.properties
-      env:
-        GRADLE_PROPERTIES: ${{ secrets.GRADLE_PROPERTIES }}
-      shell: bash
-      run: |
-        mkdir -p ~/.gradle/
-        echo ${GRADLE_PROPERTIES} > ~/.gradle/gradle.properties
-
     - uses: eskatos/gradle-command-action@v1.3.3
       with:
         arguments: build
