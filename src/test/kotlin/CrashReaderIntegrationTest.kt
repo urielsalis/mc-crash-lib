@@ -1,6 +1,6 @@
 import arrow.core.Either
-import me.urielsalis.mccrashlib.Crash
-import me.urielsalis.mccrashlib.CrashReader
+import com.urielsalis.mccrashlib.Crash
+import com.urielsalis.mccrashlib.CrashReader
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.extension.ExtensionContext

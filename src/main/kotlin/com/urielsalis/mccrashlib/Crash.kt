@@ -1,4 +1,4 @@
-package me.urielsalis.mccrashlib
+package com.urielsalis.mccrashlib
 
 sealed class Crash {
     object Unknown : Crash()

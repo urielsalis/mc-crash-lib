@@ -1,4 +1,4 @@
-package me.urielsalis.mccrashlib.deobfuscator
+package com.urielsalis.mccrashlib.deobfuscator
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull

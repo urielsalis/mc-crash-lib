@@ -1,4 +1,4 @@
-package me.urielsalis.mccrashlib.deobfuscator
+package com.urielsalis.mccrashlib.deobfuscator
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import proguard.retrace.ReTrace

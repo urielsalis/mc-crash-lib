@@ -1,8 +1,8 @@
-package me.urielsalis.mccrashlib.parser
+package com.urielsalis.mccrashlib.parser
 
 import arrow.core.Either
 import arrow.core.firstOrNone
-import me.urielsalis.mccrashlib.Crash
+import com.urielsalis.mccrashlib.Crash
 import java.io.File
 
 /*

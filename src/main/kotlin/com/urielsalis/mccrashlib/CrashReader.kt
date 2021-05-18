@@ -1,9 +1,9 @@
-package me.urielsalis.mccrashlib
+package com.urielsalis.mccrashlib
 
 import arrow.core.Either
-import me.urielsalis.mccrashlib.parser.JavaCrashParser
-import me.urielsalis.mccrashlib.parser.MinecraftCrashParser
-import me.urielsalis.mccrashlib.parser.ParserError
+import com.urielsalis.mccrashlib.parser.JavaCrashParser
+import com.urielsalis.mccrashlib.parser.MinecraftCrashParser
+import com.urielsalis.mccrashlib.parser.ParserError
 import java.io.File
 
 const val MINECRAFT_CRASH_HEADER = "---- Minecraft Crash Report ----"
