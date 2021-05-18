@@ -1,4 +1,4 @@
-package me.urielsalis.mccrashlib.deobfuscator
+package com.urielsalis.mccrashlib.deobfuscator
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty

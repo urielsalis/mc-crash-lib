@@ -1,9 +1,9 @@
-package me.urielsalis.mccrashlib.parser
+package com.urielsalis.mccrashlib.parser
 
 import arrow.core.Either
 import arrow.core.Option
-import me.urielsalis.mccrashlib.Crash
-import me.urielsalis.mccrashlib.deobfuscator.getDeobfuscation
+import com.urielsalis.mccrashlib.Crash
+import com.urielsalis.mccrashlib.deobfuscator.getDeobfuscation
 import java.io.File
 
 /*
