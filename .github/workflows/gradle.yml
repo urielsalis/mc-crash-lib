@@ -29,7 +29,6 @@ jobs:
       shell: bash
       run: |
         mkdir -p ~/.gradle/
-        echo "::set-env name=GRADLE_USER_HOME::$HOME/.gradle"
         echo ${GRADLE_PROPERTIES} > ~/.gradle/gradle.properties
 
     - uses: eskatos/gradle-command-action@v1.3.3
