@@ -1,0 +1,187 @@
+---- Minecraft Crash Report ----
+// This doesn't make any sense!
+
+Time: 30.05.21, 01:30
+Description: Feature placement
+
+java.lang.IllegalArgumentException: Cannot set property cfb{name=facing, clazz=class gc, values=[north, south, west, east]} as it does not exist in Block{minecraft:quartz_bricks}
+	at cej.a(SourceFile:114)
+	at ciy.b(SourceFile:51)
+	at ciz.a(SourceFile:58)
+	at ciy.a(SourceFile:27)
+	at ciy.a(SourceFile:19)
+	at civ.a(SourceFile:55)
+	at cku.a(SourceFile:20)
+	at cku.a(SourceFile:11)
+	at civ.a(SourceFile:55)
+	at cjb.a(SourceFile:23)
+	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658)
+	at cjb.a(SourceFile:22)
+	at cjb.a(SourceFile:14)
+	at civ.a(SourceFile:55)
+	at cjb.a(SourceFile:23)
+	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658)
+	at cjb.a(SourceFile:22)
+	at cjb.a(SourceFile:14)
+	at civ.a(SourceFile:55)
+	at cjb.a(SourceFile:23)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:699)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
+	at cjb.a(SourceFile:22)
+	at cjb.a(SourceFile:14)
+	at civ.a(SourceFile:55)
+	at bsv.a(SourceFile:373)
+	at cfy.a(SourceFile:220)
+	at cga.c(SourceFile:89)
+	at cga.a(SourceFile:219)
+	at zs.a(SourceFile:568)
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38)
+	at zs.a(SourceFile:562)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478)
+	at zu.b(SourceFile:58)
+	at aoe.e(SourceFile:94)
+	at aoe.a(SourceFile:137)
+	at aoe.run(SourceFile:105)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1426)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at cej.a(SourceFile:114)
+	at ciy.b(SourceFile:51)
+	at ciz.a(SourceFile:58)
+	at ciy.a(SourceFile:27)
+	at ciy.a(SourceFile:19)
+	at civ.a(SourceFile:55)
+	at cku.a(SourceFile:20)
+	at cku.a(SourceFile:11)
+	at civ.a(SourceFile:55)
+	at cjb.a(SourceFile:23)
+	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658)
+	at cjb.a(SourceFile:22)
+	at cjb.a(SourceFile:14)
+	at civ.a(SourceFile:55)
+	at cjb.a(SourceFile:23)
+	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658)
+	at cjb.a(SourceFile:22)
+	at cjb.a(SourceFile:14)
+	at civ.a(SourceFile:55)
+	at cjb.a(SourceFile:23)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:699)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
+	at cjb.a(SourceFile:22)
+	at cjb.a(SourceFile:14)
+	at civ.a(SourceFile:55)
+
+-- Feature --
+Details:
+	Id: minecraft:decorated
+	Config: < clv [minecraft:decorated | [minecraft:count_noise_biased cql@6e90e03b]] >
+	Description: < cjb [minecraft:decorated] >
+Stacktrace:
+	at bsv.a(SourceFile:373)
+
+-- Generation --
+Details:
+	CenterX: -47
+	CenterZ: 6192
+	Seed: 2734632675027547379
+	Biome: bsv@37736bf1
+Stacktrace:
+	at cfy.a(SourceFile:220)
+	at cga.c(SourceFile:89)
+	at cga.a(SourceFile:219)
+
+-- Chunk to be generated --
+Details:
+	Location: -47,6192
+	Position hash: 26598732464081
+	Generator: cho@382fd5f3
+Stacktrace:
+	at zs.a(SourceFile:568)
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38)
+	at zs.a(SourceFile:562)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478)
+	at zu.b(SourceFile:58)
+	at aoe.e(SourceFile:94)
+
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:falling_block (bcu)
+	Entity ID: 2126
+	Entity Name: Falling Block
+	Entity's Exact location: -702.50, 30.01, 99062.50
+	Entity's Block location: World: (-703,30,99062), Chunk: (at 1,1,6 in -44,6191; contains blocks -704,0,99056 to -689,255,99071), Region: (-2,193; contains chunks -64,6176 to -33,6207, blocks -1024,0,98816 to -513,255,99327)
+	Entity's Momentum: 0.00, 0.00, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+	Immitating BlockState: Block{minecraft:sand}
+Stacktrace:
+	at brx.a(SourceFile:564)
+	at aag.a(SourceFile:411)
+	at net.minecraft.server.MinecraftServer.b(SourceFile:871)
+	at zg.b(SourceFile:312)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:811)
+	at net.minecraft.server.MinecraftServer.w(SourceFile:670)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:257)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+-- Affected level --
+Details:
+	All players: 1 total; [aah['Marcono1234'/292, l='ServerLevel[world]', x=-659.01, y=95.90, z=99029.02]]
+	Chunk stats: ServerChunkCache: 3079
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (-208,67,208), Chunk: (at 0,4,0 in -13,13; contains blocks -208,0,208 to -193,255,223), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 17947 game time, 17947 day time
+	Level name: world
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+	Level weather: Rain time: 140516 (now: false), thunder time: 23783 (now: false)
+	Known server brands: vanilla
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 11.0.5, AdoptOpenJDK
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), AdoptOpenJDK
+	Memory: 425461760 bytes (405 MB) / 1073741824 bytes (1024 MB) up to 2147483648 bytes (2048 MB)
+	CPUs: 6
+	JVM Flags: 0 total; 
+	Player Count: 1 / 20; [aah['Marcono1234'/292, l='ServerLevel[world]', x=-659.01, y=95.90, z=99029.02]]
+	Data Packs: vanilla, file/MC-224778.zip (incompatible)
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
