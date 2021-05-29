@@ -1,189 +1,33 @@
 ---- Minecraft Crash Report ----
-// Hey, that tickles! Hehehe!
+// Uh... Did I do that?
 
-Time: 06.05.21 00:27
-Description: Feature placement
+Time: 30.05.21, 01:05
+Description: Exception in server tick loop
 
-java.lang.IllegalArgumentException: Cannot set property cfb{name=facing, clazz=class gc, values=[north, south, west, east]} as it does not exist in Block{minecraft:quartz_bricks}
-	at cej.a(SourceFile:114)
-	at ciy.b(SourceFile:51)
-	at ciz.a(SourceFile:58)
-	at ciy.a(SourceFile:27)
-	at ciy.a(SourceFile:19)
-	at civ.a(SourceFile:55)
-	at cku.a(SourceFile:20)
-	at cku.a(SourceFile:11)
-	at civ.a(SourceFile:55)
-	at cjb.a(SourceFile:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:419)
-	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
-	at cjb.a(SourceFile:22)
-	at cjb.a(SourceFile:14)
-	at civ.a(SourceFile:55)
-	at cjb.a(SourceFile:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:419)
-	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
-	at cjb.a(SourceFile:22)
-	at cjb.a(SourceFile:14)
-	at civ.a(SourceFile:55)
-	at cjb.a(SourceFile:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
-	at java.util.stream.IntPipeline$4$1.accept(IntPipeline.java:250)
-	at java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:110)
-	at java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:693)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:512)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:502)
-	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
-	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
-	at cjb.a(SourceFile:22)
-	at cjb.a(SourceFile:14)
-	at civ.a(SourceFile:55)
-	at bsv.a(SourceFile:373)
-	at cfy.a(SourceFile:220)
-	at cga.c(SourceFile:89)
-	at cga$$Lambda$1749/1956069733.doWork(Unknown Source)
-	at cga.a(SourceFile:219)
-	at zs.a(SourceFile:568)
-	at zs$$Lambda$4179/1440091096.apply(Unknown Source)
-	at com.mojang.datafixers.util.Either$Left.map(Either.java:38)
-	at zs.a(SourceFile:562)
-	at zs$$Lambda$4164/1959107723.apply(Unknown Source)
-	at java.util.concurrent.CompletableFuture.uniCompose(CompletableFuture.java:952)
-	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:926)
-	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:442)
-	at zu.b(SourceFile:58)
-	at zu$$Lambda$4177/1354493102.run(Unknown Source)
-	at aoe.e(SourceFile:94)
-	at aoe.a(SourceFile:137)
-	at aoe.run(SourceFile:105)
-	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1402)
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
-	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
-	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1689)
-	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+java.lang.IllegalArgumentException: port out of range:-1
+	at java.base/java.net.InetSocketAddress.checkPort(InetSocketAddress.java:143)
+	at java.base/java.net.InetSocketAddress.<init>(InetSocketAddress.java:188)
+	at io.netty.bootstrap.AbstractBootstrap.localAddress(AbstractBootstrap.java:163)
+	at aax.a(SourceFile:114)
+	at zg.d(SourceFile:147)
+	at net.minecraft.server.MinecraftServer.w(SourceFile:645)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:257)
+	at java.base/java.lang.Thread.run(Thread.java:834)
 
 
 A detailed walkthrough of the error, its code path and all known details is as follows:
 ---------------------------------------------------------------------------------------
-
--- Head --
-Thread: Server thread
-Stacktrace:
-	at cej.a(SourceFile:114)
-	at ciy.b(SourceFile:51)
-	at ciz.a(SourceFile:58)
-	at ciy.a(SourceFile:27)
-	at ciy.a(SourceFile:19)
-	at civ.a(SourceFile:55)
-	at cku.a(SourceFile:20)
-	at cku.a(SourceFile:11)
-	at civ.a(SourceFile:55)
-	at cjb.a(SourceFile:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:419)
-	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
-	at cjb.a(SourceFile:22)
-	at cjb.a(SourceFile:14)
-	at civ.a(SourceFile:55)
-	at cjb.a(SourceFile:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:419)
-	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
-	at cjb.a(SourceFile:22)
-	at cjb.a(SourceFile:14)
-	at civ.a(SourceFile:55)
-	at cjb.a(SourceFile:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
-	at java.util.stream.IntPipeline$4$1.accept(IntPipeline.java:250)
-	at java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:110)
-	at java.util.Spliterator$OfInt.forEachRemaining(Spliterator.java:693)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:512)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:502)
-	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
-	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
-	at cjb.a(SourceFile:22)
-	at cjb.a(SourceFile:14)
-	at civ.a(SourceFile:55)
-
--- Feature --
-Details:
-	Id: minecraft:decorated
-	Config: < clv [minecraft:decorated | [minecraft:count_noise_biased cql@63a2952f]] >
-	Description: < cjb [minecraft:decorated] >
-Stacktrace:
-	at bsv.a(SourceFile:373)
-
--- Generation --
-Details:
-	CenterX: -99
-	CenterZ: 95
-	Seed: 1295211524688860355
-	Biome: bsv@27dbe9a3
-Stacktrace:
-	at cfy.a(SourceFile:220)
-	at cga.c(SourceFile:89)
-	at cga$$Lambda$1749/1956069733.doWork(Unknown Source)
-	at cga.a(SourceFile:219)
-
--- Chunk to be generated --
-Details:
-	Location: -99,95
-	Position hash: 412316860317
-	Generator: cho@4b6df8c4
-Stacktrace:
-	at zs.a(SourceFile:568)
-	at zs$$Lambda$4179/1440091096.apply(Unknown Source)
-	at com.mojang.datafixers.util.Either$Left.map(Either.java:38)
-	at zs.a(SourceFile:562)
-	at zs$$Lambda$4164/1959107723.apply(Unknown Source)
-	at java.util.concurrent.CompletableFuture.uniCompose(CompletableFuture.java:952)
-	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:926)
-	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:442)
-	at zu.b(SourceFile:58)
-	at zu$$Lambda$4177/1354493102.run(Unknown Source)
-	at aoe.e(SourceFile:94)
-
--- Affected level --
-Details:
-	All players: 1 total; [aah['Marcono1234'/127, l='ServerLevel[New World]', x=-1571.50, y=119.53, z=1524.50]]
-	Chunk stats: ServerChunkCache: 2924
-	Level dimension: minecraft:overworld
-	Level spawn location: World: (6,63,14), Chunk: (at 6,3,14 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
-	Level time: 1756 game time, 1756 day time
-	Level name: New World
-	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
-	Level weather: Rain time: 72150 (now: false), thunder time: 169318 (now: false)
-	Known server brands: vanilla
-	Level was modded: false
-	Level storage version: 0x04ABD - Anvil
-Stacktrace:
-	at net.minecraft.server.MinecraftServer.b(SourceFile:874)
-	at net.minecraft.server.MinecraftServer.a(SourceFile:811)
-	at eng.a(SourceFile:91)
-	at net.minecraft.server.MinecraftServer.w(SourceFile:670)
-	at net.minecraft.server.MinecraftServer.a(SourceFile:257)
-	at net.minecraft.server.MinecraftServer$$Lambda$4083/982345020.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
 
 -- System Details --
 Details:
 	Minecraft Version: 1.16.5
 	Minecraft Version ID: 1.16.5
 	Operating System: Windows 10 (amd64) version 10.0
-	Java Version: 1.8.0_51, Oracle Corporation
-	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
-	Memory: 1136409776 bytes (1083 MB) / 1912602624 bytes (1824 MB) up to 2147483648 bytes (2048 MB)
+	Java Version: 11.0.5, AdoptOpenJDK
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), AdoptOpenJDK
+	Memory: 826880880 bytes (788 MB) / 1114636288 bytes (1063 MB) up to 2147483648 bytes (2048 MB)
 	CPUs: 6
-	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
-	Player Count: 1 / 8; [aah['Marcono1234'/127, l='ServerLevel[New World]', x=-1571.50, y=119.53, z=1524.50]]
-	Data Packs: vanilla, file/MC-224778.zip (incompatible)
-	Type: Integrated Server (map_client.txt)
-	Is Modded: Probably not. Jar signature remains and both client + server brands are untouched.
+	JVM Flags: 0 total;
+	Data Packs: vanilla
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)

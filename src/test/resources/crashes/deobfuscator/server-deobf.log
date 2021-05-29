@@ -1,216 +1,36 @@
 ---- Minecraft Crash Report ----
-// Hey, that tickles! Hehehe!
+// Uh... Did I do that?
 
-Time: 06.05.21 00:27
-Description: Feature placement
+Time: 30.05.21, 01:05
+Description: Exception in server tick loop
 
-java.lang.IllegalArgumentException: Cannot set property cfb{name=facing, clazz=class gc, values=[north, south, west, east]} as it does not exist in Block{minecraft:quartz_bricks}
-	at net.minecraft.world.level.block.state.StateHolder.java.lang.Object setValue(net.minecraft.world.level.block.state.properties.Property,java.lang.Comparable)(StateHolder.java:114)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean placeCoralBlock(net.minecraft.world.level.LevelAccessor,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)(CoralFeature.java:51)
-	at net.minecraft.world.level.levelgen.feature.CoralMushroomFeature.boolean placeFeature(net.minecraft.world.level.LevelAccessor,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)(CoralMushroomFeature.java:58)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration)(CoralFeature.java:27)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean placeFeature(net.minecraft.world.level.LevelAccessor,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)(CoralFeature.java:27)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean placeFeature(net.minecraft.world.level.LevelAccessor,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)(CoralFeature.java:19)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(CoralFeature.java:19)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-	at net.minecraft.world.level.levelgen.feature.SimpleRandomSelectorFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration)(SimpleRandomSelectorFeature.java:20)
-	at net.minecraft.world.level.levelgen.feature.SimpleRandomSelectorFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(SimpleRandomSelectorFeature.java:11)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:23)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.void lambda$place$0(net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration,net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,org.apache.commons.lang3.mutable.MutableBoolean,net.minecraft.core.BlockPos)(DecoratedFeature.java:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.Streams$StreamBuilderImpl.null forEachRemaining(null)(Streams.java:419)
-	at java.util.stream.ReferencePipeline$Head.null forEach(null)(ReferencePipeline.java:580)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:22)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(DecoratedFeature.java:14)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:23)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.void lambda$place$0(net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration,net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,org.apache.commons.lang3.mutable.MutableBoolean,net.minecraft.core.BlockPos)(DecoratedFeature.java:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.Streams$StreamBuilderImpl.null forEachRemaining(null)(Streams.java:419)
-	at java.util.stream.ReferencePipeline$Head.null forEach(null)(ReferencePipeline.java:580)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:22)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(DecoratedFeature.java:14)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:23)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.void lambda$place$0(net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration,net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,org.apache.commons.lang3.mutable.MutableBoolean,net.minecraft.core.BlockPos)(DecoratedFeature.java:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.ForEachOps$ForEachOp$OfRef.null accept(null)(ForEachOps.java:184)
-	at java.util.stream.IntPipeline$4$1.null accept(null)(IntPipeline.java:250)
-	at java.util.stream.Streams$RangeIntSpliterator.null forEachRemaining(null)(Streams.java:110)
-	at java.util.Spliterator$OfInt.null forEachRemaining(null)(Spliterator.java:693)
-	at java.util.stream.AbstractPipeline.null copyInto(null)(AbstractPipeline.java:512)
-	at java.util.stream.AbstractPipeline.null wrapAndCopyInto(null)(AbstractPipeline.java:502)
-	at java.util.stream.ForEachOps$ForEachOp.null evaluateSequential(null)(ForEachOps.java:151)
-	at java.util.stream.ForEachOps$ForEachOp$OfRef.null evaluateSequential(null)(ForEachOps.java:174)
-	at java.util.stream.AbstractPipeline.null evaluate(null)(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.null forEach(null)(ReferencePipeline.java:418)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:22)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(DecoratedFeature.java:14)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-	at net.minecraft.world.level.biome.Biome.void generate(net.minecraft.world.level.StructureFeatureManager,net.minecraft.world.level.chunk.ChunkGenerator,net.minecraft.server.level.WorldGenRegion,long,net.minecraft.world.level.levelgen.WorldgenRandom,net.minecraft.core.BlockPos)(Biome.java:373)
-	at net.minecraft.world.level.chunk.ChunkGenerator.com.mojang.serialization.Codec codec()(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.net.minecraft.world.level.chunk.ChunkGenerator withSeed(long)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.void applyBiomeDecoration(net.minecraft.server.level.WorldGenRegion,net.minecraft.world.level.StructureFeatureManager)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.void buildSurfaceAndBedrock(net.minecraft.server.level.WorldGenRegion,net.minecraft.world.level.chunk.ChunkAccess)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.void fillFromNoise(net.minecraft.world.level.LevelAccessor,net.minecraft.world.level.StructureFeatureManager,net.minecraft.world.level.chunk.ChunkAccess)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.int getBaseHeight(int,int,net.minecraft.world.level.levelgen.Heightmap$Types)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.net.minecraft.world.level.BlockGetter getBaseColumn(int,int)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkStatus.java.util.concurrent.CompletableFuture lambda$static$9(net.minecraft.world.level.chunk.ChunkStatus,net.minecraft.server.level.ServerLevel,net.minecraft.world.level.chunk.ChunkGenerator,net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager,net.minecraft.server.level.ThreadedLevelLightEngine,java.util.function.Function,java.util.List,net.minecraft.world.level.chunk.ChunkAccess)(ChunkStatus.java:89)
-	at cga$$Lambda$1749/1956069733.doWork(Unknown Source)
-	at net.minecraft.world.level.chunk.ChunkStatus.java.util.concurrent.CompletableFuture generate(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.chunk.ChunkGenerator,net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager,net.minecraft.server.level.ThreadedLevelLightEngine,java.util.function.Function,java.util.List)(ChunkStatus.java:219)
-	at net.minecraft.server.level.ChunkMap.java.util.concurrent.CompletableFuture lambda$null$18(net.minecraft.world.level.ChunkPos,net.minecraft.server.level.ChunkHolder,net.minecraft.world.level.chunk.ChunkStatus,java.util.List)(ChunkMap.java:568)
-	at zs$$Lambda$4179/1440091096.apply(Unknown Source)
-	at com.mojang.datafixers.util.Either$Left.null map(null)(Either.java:38)
-	at net.minecraft.server.level.ChunkMap.java.util.concurrent.CompletionStage lambda$scheduleChunkGeneration$20(net.minecraft.world.level.ChunkPos,net.minecraft.server.level.ChunkHolder,net.minecraft.world.level.chunk.ChunkStatus,com.mojang.datafixers.util.Either)(ChunkMap.java:562)
-	at zs$$Lambda$4164/1959107723.apply(Unknown Source)
-	at java.util.concurrent.CompletableFuture.null uniCompose(null)(CompletableFuture.java:952)
-	at java.util.concurrent.CompletableFuture$UniCompose.null tryFire(null)(CompletableFuture.java:926)
-	at java.util.concurrent.CompletableFuture$Completion.null run(null)(CompletableFuture.java:442)
-	at net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void lambda$null$1(java.lang.Runnable,net.minecraft.util.thread.ProcessorHandle)(ChunkTaskPriorityQueueSorter.java:58)
-	at zu$$Lambda$4177/1354493102.run(Unknown Source)
-	at net.minecraft.util.thread.ProcessorMailbox.boolean pollTask()(ProcessorMailbox.java:94)
-	at net.minecraft.util.thread.ProcessorMailbox.int pollUntil(it.unimi.dsi.fastutil.ints.Int2BooleanFunction)(ProcessorMailbox.java:137)
-	at net.minecraft.util.thread.ProcessorMailbox.void run()(ProcessorMailbox.java:105)
-	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.null exec(null)(ForkJoinTask.java:1402)
-	at java.util.concurrent.ForkJoinTask.null doExec(null)(ForkJoinTask.java:289)
-	at java.util.concurrent.ForkJoinPool$WorkQueue.null runTask(null)(ForkJoinPool.java:1056)
-	at java.util.concurrent.ForkJoinPool.null runWorker(null)(ForkJoinPool.java:1689)
-	at java.util.concurrent.ForkJoinWorkerThread.null run(null)(ForkJoinWorkerThread.java:157)
-
-
-A detailed walkthrough of the error, its code path and all known details is as follows:
----------------------------------------------------------------------------------------
-
--- Head --
-Thread: Server thread
-Stacktrace:
-	at net.minecraft.world.level.block.state.StateHolder.java.lang.Object setValue(net.minecraft.world.level.block.state.properties.Property,java.lang.Comparable)(StateHolder.java:114)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean placeCoralBlock(net.minecraft.world.level.LevelAccessor,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)(CoralFeature.java:51)
-	at net.minecraft.world.level.levelgen.feature.CoralMushroomFeature.boolean placeFeature(net.minecraft.world.level.LevelAccessor,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)(CoralMushroomFeature.java:58)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration)(CoralFeature.java:27)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean placeFeature(net.minecraft.world.level.LevelAccessor,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)(CoralFeature.java:27)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean placeFeature(net.minecraft.world.level.LevelAccessor,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)(CoralFeature.java:19)
-	at net.minecraft.world.level.levelgen.feature.CoralFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(CoralFeature.java:19)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-	at net.minecraft.world.level.levelgen.feature.SimpleRandomSelectorFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration)(SimpleRandomSelectorFeature.java:20)
-	at net.minecraft.world.level.levelgen.feature.SimpleRandomSelectorFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(SimpleRandomSelectorFeature.java:11)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:23)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.void lambda$place$0(net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration,net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,org.apache.commons.lang3.mutable.MutableBoolean,net.minecraft.core.BlockPos)(DecoratedFeature.java:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.Streams$StreamBuilderImpl.null forEachRemaining(null)(Streams.java:419)
-	at java.util.stream.ReferencePipeline$Head.null forEach(null)(ReferencePipeline.java:580)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:22)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(DecoratedFeature.java:14)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:23)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.void lambda$place$0(net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration,net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,org.apache.commons.lang3.mutable.MutableBoolean,net.minecraft.core.BlockPos)(DecoratedFeature.java:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.Streams$StreamBuilderImpl.null forEachRemaining(null)(Streams.java:419)
-	at java.util.stream.ReferencePipeline$Head.null forEach(null)(ReferencePipeline.java:580)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:22)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(DecoratedFeature.java:14)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:23)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.void lambda$place$0(net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration,net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,org.apache.commons.lang3.mutable.MutableBoolean,net.minecraft.core.BlockPos)(DecoratedFeature.java:23)
-	at cjb$$Lambda$4202/169364926.accept(Unknown Source)
-	at java.util.stream.ForEachOps$ForEachOp$OfRef.null accept(null)(ForEachOps.java:184)
-	at java.util.stream.IntPipeline$4$1.null accept(null)(IntPipeline.java:250)
-	at java.util.stream.Streams$RangeIntSpliterator.null forEachRemaining(null)(Streams.java:110)
-	at java.util.Spliterator$OfInt.null forEachRemaining(null)(Spliterator.java:693)
-	at java.util.stream.AbstractPipeline.null copyInto(null)(AbstractPipeline.java:512)
-	at java.util.stream.AbstractPipeline.null wrapAndCopyInto(null)(AbstractPipeline.java:502)
-	at java.util.stream.ForEachOps$ForEachOp.null evaluateSequential(null)(ForEachOps.java:151)
-	at java.util.stream.ForEachOps$ForEachOp$OfRef.null evaluateSequential(null)(ForEachOps.java:174)
-	at java.util.stream.AbstractPipeline.null evaluate(null)(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.null forEach(null)(ReferencePipeline.java:418)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration)(DecoratedFeature.java:22)
-	at net.minecraft.world.level.levelgen.feature.DecoratedFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration)(DecoratedFeature.java:14)
-	at net.minecraft.world.level.levelgen.feature.ConfiguredFeature.boolean place(net.minecraft.world.level.WorldGenLevel,net.minecraft.world.level.chunk.ChunkGenerator,java.util.Random,net.minecraft.core.BlockPos)(ConfiguredFeature.java:55)
-
--- Feature --
-Details:
-	Id: minecraft:decorated
-	Config: < clv [minecraft:decorated | [minecraft:count_noise_biased cql@63a2952f]] >
-	Description: < cjb [minecraft:decorated] >
-Stacktrace:
-	at net.minecraft.world.level.biome.Biome.void generate(net.minecraft.world.level.StructureFeatureManager,net.minecraft.world.level.chunk.ChunkGenerator,net.minecraft.server.level.WorldGenRegion,long,net.minecraft.world.level.levelgen.WorldgenRandom,net.minecraft.core.BlockPos)(Biome.java:373)
-
--- Generation --
-Details:
-	CenterX: -99
-	CenterZ: 95
-	Seed: 1295211524688860355
-	Biome: bsv@27dbe9a3
-Stacktrace:
-	at net.minecraft.world.level.chunk.ChunkGenerator.com.mojang.serialization.Codec codec()(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.net.minecraft.world.level.chunk.ChunkGenerator withSeed(long)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.void applyBiomeDecoration(net.minecraft.server.level.WorldGenRegion,net.minecraft.world.level.StructureFeatureManager)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.void buildSurfaceAndBedrock(net.minecraft.server.level.WorldGenRegion,net.minecraft.world.level.chunk.ChunkAccess)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.void fillFromNoise(net.minecraft.world.level.LevelAccessor,net.minecraft.world.level.StructureFeatureManager,net.minecraft.world.level.chunk.ChunkAccess)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.int getBaseHeight(int,int,net.minecraft.world.level.levelgen.Heightmap$Types)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkGenerator.net.minecraft.world.level.BlockGetter getBaseColumn(int,int)(ChunkGenerator.java:220)
-	at net.minecraft.world.level.chunk.ChunkStatus.java.util.concurrent.CompletableFuture lambda$static$9(net.minecraft.world.level.chunk.ChunkStatus,net.minecraft.server.level.ServerLevel,net.minecraft.world.level.chunk.ChunkGenerator,net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager,net.minecraft.server.level.ThreadedLevelLightEngine,java.util.function.Function,java.util.List,net.minecraft.world.level.chunk.ChunkAccess)(ChunkStatus.java:89)
-	at cga$$Lambda$1749/1956069733.doWork(Unknown Source)
-	at net.minecraft.world.level.chunk.ChunkStatus.java.util.concurrent.CompletableFuture generate(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.chunk.ChunkGenerator,net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager,net.minecraft.server.level.ThreadedLevelLightEngine,java.util.function.Function,java.util.List)(ChunkStatus.java:219)
-
--- Chunk to be generated --
-Details:
-	Location: -99,95
-	Position hash: 412316860317
-	Generator: cho@4b6df8c4
-Stacktrace:
-	at net.minecraft.server.level.ChunkMap.java.util.concurrent.CompletableFuture lambda$null$18(net.minecraft.world.level.ChunkPos,net.minecraft.server.level.ChunkHolder,net.minecraft.world.level.chunk.ChunkStatus,java.util.List)(ChunkMap.java:568)
-	at zs$$Lambda$4179/1440091096.apply(Unknown Source)
-	at com.mojang.datafixers.util.Either$Left.null map(null)(Either.java:38)
-	at net.minecraft.server.level.ChunkMap.java.util.concurrent.CompletionStage lambda$scheduleChunkGeneration$20(net.minecraft.world.level.ChunkPos,net.minecraft.server.level.ChunkHolder,net.minecraft.world.level.chunk.ChunkStatus,com.mojang.datafixers.util.Either)(ChunkMap.java:562)
-	at zs$$Lambda$4164/1959107723.apply(Unknown Source)
-	at java.util.concurrent.CompletableFuture.null uniCompose(null)(CompletableFuture.java:952)
-	at java.util.concurrent.CompletableFuture$UniCompose.null tryFire(null)(CompletableFuture.java:926)
-	at java.util.concurrent.CompletableFuture$Completion.null run(null)(CompletableFuture.java:442)
-	at net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void lambda$null$1(java.lang.Runnable,net.minecraft.util.thread.ProcessorHandle)(ChunkTaskPriorityQueueSorter.java:58)
-	at zu$$Lambda$4177/1354493102.run(Unknown Source)
-	at net.minecraft.util.thread.ProcessorMailbox.boolean pollTask()(ProcessorMailbox.java:94)
-
--- Affected level --
-Details:
-	All players: 1 total; [aah['Marcono1234'/127, l='ServerLevel[New World]', x=-1571.50, y=119.53, z=1524.50]]
-	Chunk stats: ServerChunkCache: 2924
-	Level dimension: minecraft:overworld
-	Level spawn location: World: (6,63,14), Chunk: (at 6,3,14 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
-	Level time: 1756 game time, 1756 day time
-	Level name: New World
-	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
-	Level weather: Rain time: 72150 (now: false), thunder time: 169318 (now: false)
-	Known server brands: vanilla
-	Level was modded: false
-	Level storage version: 0x04ABD - Anvil
-Stacktrace:
-	at net.minecraft.server.MinecraftServer.void tickChildren(java.util.function.BooleanSupplier)(MinecraftServer.java:874)
-	at net.minecraft.server.MinecraftServer.void tickServer(java.util.function.BooleanSupplier)(MinecraftServer.java:811)
-	at net.minecraft.server.MinecraftServer.boolean publishServer(net.minecraft.world.level.GameType,boolean,int)(MinecraftServer.java:811)
-	at net.minecraft.server.MinecraftServer.boolean isSingleplayerOwner(com.mojang.authlib.GameProfile)(MinecraftServer.java:811)
-	at eng.null a(null)(eng.java:91)
-	at net.minecraft.server.MinecraftServer.void runServer()(MinecraftServer.java:670)
+java.lang.IllegalArgumentException: port out of range:-1
+	at java.base/java.net.InetSocketAddress.checkPort(InetSocketAddress.java:143)
+	at java.base/java.net.InetSocketAddress.<init>(InetSocketAddress.java:188)
+	at io.netty.bootstrap.AbstractBootstrap.null localAddress(null)(AbstractBootstrap.java:163)
+	at net.minecraft.server.network.ServerConnectionListener.void startTcpServerListener(java.net.InetAddress,int)(ServerConnectionListener.java:114)
+	at net.minecraft.server.dedicated.DedicatedServer.boolean initServer()(DedicatedServer.java:147)
+	at net.minecraft.server.MinecraftServer.void runServer()(MinecraftServer.java:645)
 	at net.minecraft.server.MinecraftServer.net.minecraft.server.MinecraftServer spin(java.util.function.Function)(MinecraftServer.java:257)
 	at net.minecraft.server.MinecraftServer.boolean publishServer(net.minecraft.world.level.GameType,boolean,int)(MinecraftServer.java:257)
 	at net.minecraft.server.MinecraftServer.boolean isSingleplayerOwner(com.mojang.authlib.GameProfile)(MinecraftServer.java:257)
 	at net.minecraft.server.MinecraftServer.void lambda$spin$0(java.util.concurrent.atomic.AtomicReference)(MinecraftServer.java:257)
-	at net.minecraft.server.MinecraftServer$$Lambda$4083/982345020.run(Unknown Source)
-	at java.lang.Thread.null run(null)(Thread.java:745)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
 
 -- System Details --
 Details:
 	Minecraft Version: 1.16.5
 	Minecraft Version ID: 1.16.5
 	Operating System: Windows 10 (amd64) version 10.0
-	Java Version: 1.8.0_51, Oracle Corporation
-	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
-	Memory: 1136409776 bytes (1083 MB) / 1912602624 bytes (1824 MB) up to 2147483648 bytes (2048 MB)
+	Java Version: 11.0.5, AdoptOpenJDK
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), AdoptOpenJDK
+	Memory: 826880880 bytes (788 MB) / 1114636288 bytes (1063 MB) up to 2147483648 bytes (2048 MB)
 	CPUs: 6
-	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
-	Player Count: 1 / 8; [aah['Marcono1234'/127, l='ServerLevel[New World]', x=-1571.50, y=119.53, z=1524.50]]
-	Data Packs: vanilla, file/MC-224778.zip (incompatible)
-	Type: Integrated Server (map_client.txt)
-	Is Modded: Probably not. Jar signature remains and both client + server brands are untouched.
+	JVM Flags: 0 total; 
+	Data Packs: vanilla
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
