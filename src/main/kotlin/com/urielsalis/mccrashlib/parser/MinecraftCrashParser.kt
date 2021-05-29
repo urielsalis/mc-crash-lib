@@ -12,11 +12,11 @@ import java.io.File
     The exception starts with java.lang and its all lines until the first empty line
     System details contains a : separated key value pair. We care about Is Modded
  */
-const val crashReportSection = "Minecraft Crash Report"
-const val systemDetailsSection = "System Details"
-const val isModded = "Is Modded"
-const val minecraftVersion = "Minecraft Version"
-const val typeSection = "Type"
+private const val crashReportSection = "Minecraft Crash Report"
+private const val systemDetailsSection = "System Details"
+private const val isModded = "Is Modded"
+private const val minecraftVersion = "Minecraft Version ID"
+private const val typeSection = "Type"
 
 class MinecraftCrashParser : CrashParser {
     object SectionsNotFound : ParserError
