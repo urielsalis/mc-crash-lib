@@ -30,7 +30,7 @@ Details:
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), AdoptOpenJDK
 	Memory: 826880880 bytes (788 MB) / 1114636288 bytes (1063 MB) up to 2147483648 bytes (2048 MB)
 	CPUs: 6
-	JVM Flags: 0 total; 
+	JVM Flags: 0 total;
 	Data Packs: vanilla
 	Is Modded: Unknown (can't tell)
 	Type: Dedicated Server (map_server.txt)
