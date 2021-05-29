@@ -1,0 +1,92 @@
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 5/28/21, 3:24 PM
+Description: Manually triggered debug crash
+
+java.lang.Throwable
+	at net.minecraft.client.KeyboardHandler.void tick()(KeyboardHandler.java:489)
+	at net.minecraft.client.Minecraft.void tick()(Minecraft.java:1805)
+	at net.minecraft.client.Minecraft.void runTick(boolean)(Minecraft.java:1083)
+	at net.minecraft.client.Minecraft.void run()(Minecraft.java:730)
+	at net.minecraft.client.main.Main.void main(java.lang.String[])(Main.java:217)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.client.KeyboardHandler.void tick()(KeyboardHandler.java:489)
+
+-- Affected level --
+Details:
+	All players: 1 total; [eml['Someone'/4645, l='ClientLevel', x=1496.15, y=108.97, z=7248.30]]
+	Chunk stats: 841, 575
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,71,0), Section: (at 0,7,0 in 0,4,0; chunk contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 14569 game time, 14569 day time
+	Server brand: vanilla
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.ClientLevel.net.minecraft.CrashReportCategory fillReportDetails(net.minecraft.CrashReport)(ClientLevel.java:370)
+	at net.minecraft.client.Minecraft.net.minecraft.CrashReport fillReport(net.minecraft.CrashReport)(Minecraft.java:2399)
+	at net.minecraft.client.Minecraft.void run()(Minecraft.java:749)
+	at net.minecraft.client.main.Main.void main(java.lang.String[])(Main.java:217)
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: Default
+
+-- System Details --
+Details:
+	Minecraft Version: 1.17 Pre-release 1
+	Minecraft Version ID: 1.17-pre1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 16.0.1, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Microsoft
+	Memory: 1380998648 bytes (1317 MiB) / 2147483648 bytes (2048 MiB) up to 2147483648 bytes (2048 MiB)
+	CPUs: 16
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 7 2700X Eight-Core Processor
+	Identifier: AuthenticAMD Family 23 Model 8 Stepping 2
+	Microarchitecture: Zen+
+	Frequency (GHz): 3.70
+	Number of physical packages: 1
+	Number of physical CPUs: 8
+	Number of logical CPUs: 16
+	Graphics card #0 name: Radeon RX 5500 XT
+	Graphics card #0 vendor: Advanced Micro Devices, Inc. (0x1002)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x7340
+	Graphics card #0 versionInfo: DriverVersion=27.20.1034.6
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 2.40
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 2.40
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 23026.47
+	Virtual memory used (MB): 19646.88
+	Swap memory total (MB): 14903.20
+	Swap memory used (MB): 1602.22
+	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	Launched Version: 1.17-pre1
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: Radeon RX 5500 XT GL version 3.2.13596 Core Profile Forward-Compatible Context 20.10.35.02 27.20.1034.6, ATI Technologies Inc.
+	Window size: 2560x1440
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages:
+	Using VBOs: Yes
+	Is Modded: Probably not. Jar signature remains and both client + server brands are untouched.
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fabulous
+	Resource Packs: vanilla
+	Current Language: English (US)
+	CPU: 16x AMD Ryzen 7 2700X Eight-Core Processor
+	Player Count: 1 / 8; [abs['Someone'/4645, l='ServerLevel[New World]', x=1496.15, y=108.97, z=7248.30]]
+	Data Packs: vanilla
