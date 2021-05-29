@@ -18,6 +18,9 @@ private const val isModded = "Is Modded"
 private const val minecraftVersion = "Minecraft Version ID"
 private const val typeSection = "Type"
 
+private const val affectedLevelSection = "Affected level"
+private const val levelWasModded = "Level was modded"
+
 class MinecraftCrashParser : CrashParser {
     object SectionsNotFound : ParserError
     object NoExceptionFound : ParserError
@@ -28,8 +31,9 @@ class MinecraftCrashParser : CrashParser {
             return Either.left(SectionsNotFound)
         }
         val details = getDetails(sections[systemDetailsSection] ?: error("System details section not found"))
+        val affectedLevel = sections[affectedLevelSection]?.let(::getDetails)
+        val isModded = isGameModded(details) || affectedLevel?.let(::wasLevelModded) == true
         val exception = getException(sections[crashReportSection] ?: error("Crash report section not found"))
-        val isModded = isModded(details)
         val version = getMinecraftVersion(details)
         val type = getType(details)
         val isClient = type.contains("map_client.txt")
@@ -50,13 +54,16 @@ class MinecraftCrashParser : CrashParser {
         )
     }
 
-    private fun getMinecraftVersion(details: Map<String, String>) = details.getOrDefault(minecraftVersion, "Unknown").trim()
-    private fun getType(details: Map<String, String>) = details.getOrDefault(typeSection, "Client (map_client.txt)").trim()
+    private fun getMinecraftVersion(details: Map<String, String>) = details.getOrDefault(minecraftVersion, "Unknown")
+    private fun getType(details: Map<String, String>) = details.getOrDefault(typeSection, "Client (map_client.txt)")
 
-    private fun isModded(details: Map<String, String>) =
+    private fun isGameModded(details: Map<String, String>) =
         details.containsKey(isModded) && with(details[isModded] ?: error("Is Modded not found")) {
             !contains("Probably Not", true) && !contains("Unknown", true)
         }
+
+    private fun wasLevelModded(affectedLevelDetails: Map<String, String>) =
+        affectedLevelDetails[levelWasModded] == "true"
 
     private fun getException(lines: List<String>): Option<String> {
         var foundStart = false
@@ -84,7 +91,7 @@ class MinecraftCrashParser : CrashParser {
         .map(String::trim)
         .map {
             val pairs = it.split(":")
-            pairs.first() to pairs.getOrElse(1) { "" }
+            pairs.first() to pairs.getOrElse(1) { "" }.removePrefix(" ")
         }
         .toMap()
 
