@@ -96,7 +96,7 @@ class CrashReaderIntegrationTest {
     @ResourceFilesSource("crashes/deobfuscator", ignoredNameSuffixes = ["deobf"])
     fun shouldProcessDeobfuscation(crashFile: File) {
         val either = crashReader.processCrash(crashFile.readLines(), tempDir)
-        val deobfContent = File(crashFile.parent, crashFile.nameWithoutExtension + "-deobf.log")
+        val deobfContent = File(crashFile.parent, crashFile.nameWithoutExtension + "-deobf.txt")
             .takeIf(File::isFile)?.readText()
 
         assertTrue(either is Either.Right)
