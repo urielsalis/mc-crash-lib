@@ -32,7 +32,7 @@ class MinecraftCrashParser : CrashParser {
         val isModded = isModded(details)
         val version = getMinecraftVersion(details)
         val type = getType(details)
-        val isClient = type == "Client"
+        val isClient = type.contains("map_client.txt")
         val deobf = getDeobfuscation(isModded, version, lines.joinToString("\n"), isClient, mappingsDirectory)
         return exception.fold(
             { Either.left(NoExceptionFound) },
@@ -51,7 +51,7 @@ class MinecraftCrashParser : CrashParser {
     }
 
     private fun getMinecraftVersion(details: Map<String, String>) = details.getOrDefault(minecraftVersion, "Unknown").trim()
-    private fun getType(details: Map<String, String>) = details.getOrDefault(typeSection, "Client").trim().substringBefore(" ")
+    private fun getType(details: Map<String, String>) = details.getOrDefault(typeSection, "Client (map_client.txt)").trim()
 
     private fun isModded(details: Map<String, String>) =
         details.containsKey(isModded) && with(details[isModded] ?: error("Is Modded not found")) {
