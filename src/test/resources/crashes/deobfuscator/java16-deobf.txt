@@ -1,0 +1,488 @@
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 6/8/21, 7:41 PM
+Description: Watching Server
+
+java.lang.Error: Watchdog
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.unpark(Native Method)
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:177)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.signalWork(ForkJoinPool.java:1495)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.externalPush(ForkJoinPool.java:1912)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.externalSubmit(ForkJoinPool.java:1930)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.execute(ForkJoinPool.java:2462)
+	at app//net.minecraft.util.thread.ProcessorMailbox.void registerForExecution()(ProcessorMailbox.java:116)
+	at app//net.minecraft.util.thread.ProcessorMailbox.void tell(java.lang.Object)(ProcessorMailbox.java:109)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void submit(net.minecraft.util.thread.ProcessorHandle,java.util.function.Function,long,java.util.function.IntSupplier,boolean)(ChunkTaskPriorityQueueSorter.java:125)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.net.minecraft.util.thread.ProcessorHandle getProcessor(net.minecraft.util.thread.ProcessorHandle,boolean)(ChunkTaskPriorityQueueSorter.java:91)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void lambda$getProcessor$4(net.minecraft.util.thread.ProcessorHandle,net.minecraft.util.thread.ProcessorHandle,boolean)(ChunkTaskPriorityQueueSorter.java:91)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void lambda$getProcessor$3(net.minecraft.util.thread.ProcessorHandle,boolean,net.minecraft.server.level.ChunkTaskPriorityQueueSorter$Message)(ChunkTaskPriorityQueueSorter.java:91)
+	at app//abg$$Lambda$3949/0x00000008013e60c8.accept(Unknown Source)
+	at app//net.minecraft.util.thread.ProcessorHandle$1.void tell(java.lang.Object)(ProcessorHandle.java:44)
+	at app//net.minecraft.server.level.ChunkMap.void lambda$prepareTickingChunk$31(net.minecraft.server.level.ChunkHolder,java.lang.Runnable)(ChunkMap.java:635)
+	at app//abe$$Lambda$4014/0x00000008013ff918.execute(Unknown Source)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture$UniCompletion.claim(CompletableFuture.java:568)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:638)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture.postFire(CompletableFuture.java:610)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:649)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void lambda$message$1(java.lang.Runnable,net.minecraft.util.thread.ProcessorHandle)(ChunkTaskPriorityQueueSorter.java:58)
+	at app//abg$$Lambda$4053/0x000000080140bdd8.run(Unknown Source)
+	at app//net.minecraft.util.thread.BlockableEventLoop.void doRunTask(java.lang.Runnable)(BlockableEventLoop.java:151)
+	at app//net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.void doRunTask(java.lang.Runnable)(ServerChunkCache.java:527)
+	at app//net.minecraft.util.thread.BlockableEventLoop.boolean pollTask()(BlockableEventLoop.java:125)
+	at app//net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.boolean pollTask()(ServerChunkCache.java:536)
+	at app//net.minecraft.server.level.ServerChunkCache.boolean pollTask()(ServerChunkCache.java:279)
+	at app//net.minecraft.server.MinecraftServer.boolean pollTaskInternal()(MinecraftServer.java:771)
+	at app//net.minecraft.server.MinecraftServer.boolean pollTask()(MinecraftServer.java:759)
+	at app//net.minecraft.util.thread.BlockableEventLoop.void runAllTasks()(BlockableEventLoop.java:110)
+	at app//net.minecraft.server.MinecraftServer.void waitUntilNextTick()(MinecraftServer.java:743)
+	at app//net.minecraft.server.MinecraftServer.void runServer()(MinecraftServer.java:696)
+	at app//net.minecraft.server.MinecraftServer.net.minecraft.server.MinecraftServer spin(java.util.function.Function)(MinecraftServer.java:274)
+	at app//net.minecraft.server.MinecraftServer.net.minecraft.SystemReport fillServerSystemReport(net.minecraft.SystemReport)(MinecraftServer.java:274)
+	at app//net.minecraft.server.MinecraftServer.boolean isSingleplayerOwner(com.mojang.authlib.GameProfile)(MinecraftServer.java:274)
+	at app//net.minecraft.server.MinecraftServer.void lambda$spin$2(java.util.concurrent.atomic.AtomicReference)(MinecraftServer.java:274)
+	at app//net.minecraft.server.MinecraftServer$$Lambda$3913/0x00000008013735f0.run(Unknown Source)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server Watchdog
+Stacktrace:
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.unpark(Native Method)
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:177)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.signalWork(ForkJoinPool.java:1495)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.externalPush(ForkJoinPool.java:1912)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.externalSubmit(ForkJoinPool.java:1930)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.execute(ForkJoinPool.java:2462)
+	at app//net.minecraft.util.thread.ProcessorMailbox.void registerForExecution()(ProcessorMailbox.java:116)
+	at app//net.minecraft.util.thread.ProcessorMailbox.void tell(java.lang.Object)(ProcessorMailbox.java:109)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void submit(net.minecraft.util.thread.ProcessorHandle,java.util.function.Function,long,java.util.function.IntSupplier,boolean)(ChunkTaskPriorityQueueSorter.java:125)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.net.minecraft.util.thread.ProcessorHandle getProcessor(net.minecraft.util.thread.ProcessorHandle,boolean)(ChunkTaskPriorityQueueSorter.java:91)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void lambda$getProcessor$4(net.minecraft.util.thread.ProcessorHandle,net.minecraft.util.thread.ProcessorHandle,boolean)(ChunkTaskPriorityQueueSorter.java:91)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void lambda$getProcessor$3(net.minecraft.util.thread.ProcessorHandle,boolean,net.minecraft.server.level.ChunkTaskPriorityQueueSorter$Message)(ChunkTaskPriorityQueueSorter.java:91)
+	at app//abg$$Lambda$3949/0x00000008013e60c8.accept(Unknown Source)
+	at app//net.minecraft.util.thread.ProcessorHandle$1.void tell(java.lang.Object)(ProcessorHandle.java:44)
+	at app//net.minecraft.server.level.ChunkMap.void lambda$prepareTickingChunk$31(net.minecraft.server.level.ChunkHolder,java.lang.Runnable)(ChunkMap.java:635)
+	at app//abe$$Lambda$4014/0x00000008013ff918.execute(Unknown Source)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture$UniCompletion.claim(CompletableFuture.java:568)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:638)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture.postFire(CompletableFuture.java:610)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:649)
+	at java.base@16.0.1/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478)
+	at app//net.minecraft.server.level.ChunkTaskPriorityQueueSorter.void lambda$message$1(java.lang.Runnable,net.minecraft.util.thread.ProcessorHandle)(ChunkTaskPriorityQueueSorter.java:58)
+	at app//abg$$Lambda$4053/0x000000080140bdd8.run(Unknown Source)
+	at app//net.minecraft.util.thread.BlockableEventLoop.void doRunTask(java.lang.Runnable)(BlockableEventLoop.java:151)
+	at app//net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.void doRunTask(java.lang.Runnable)(ServerChunkCache.java:527)
+	at app//net.minecraft.util.thread.BlockableEventLoop.boolean pollTask()(BlockableEventLoop.java:125)
+	at app//net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.boolean pollTask()(ServerChunkCache.java:536)
+	at app//net.minecraft.server.level.ServerChunkCache.boolean pollTask()(ServerChunkCache.java:279)
+	at app//net.minecraft.server.MinecraftServer.boolean pollTaskInternal()(MinecraftServer.java:771)
+	at app//net.minecraft.server.MinecraftServer.boolean pollTask()(MinecraftServer.java:759)
+	at app//net.minecraft.util.thread.BlockableEventLoop.void runAllTasks()(BlockableEventLoop.java:110)
+	at app//net.minecraft.server.MinecraftServer.void waitUntilNextTick()(MinecraftServer.java:743)
+	at app//net.minecraft.server.MinecraftServer.void runServer()(MinecraftServer.java:696)
+	at app//net.minecraft.server.MinecraftServer.net.minecraft.server.MinecraftServer spin(java.util.function.Function)(MinecraftServer.java:274)
+	at app//net.minecraft.server.MinecraftServer.net.minecraft.SystemReport fillServerSystemReport(net.minecraft.SystemReport)(MinecraftServer.java:274)
+	at app//net.minecraft.server.MinecraftServer.boolean isSingleplayerOwner(com.mojang.authlib.GameProfile)(MinecraftServer.java:274)
+	at app//net.minecraft.server.MinecraftServer.void lambda$spin$2(java.util.concurrent.atomic.AtomicReference)(MinecraftServer.java:274)
+
+-- Thread Dump --
+Details:
+	Threads: "Reference Handler" daemon prio=10 Id=2 RUNNABLE
+	at java.base@16.0.1/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+	at java.base@16.0.1/java.lang.ref.Reference.processPendingReferences(Reference.java:243)
+	at java.base@16.0.1/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:215)
+
+
+"Finalizer" daemon prio=8 Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@2791d1b9
+	at java.base@16.0.1/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@2791d1b9
+	at java.base@16.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@16.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	at java.base@16.0.1/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:171)
+
+
+"Signal Dispatcher" daemon prio=9 Id=4 RUNNABLE
+
+
+"Notification Thread" daemon prio=9 Id=12 RUNNABLE
+
+
+"Common-Cleaner" daemon prio=8 Id=13 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@29563b3b
+	at java.base@16.0.1/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@29563b3b
+	at java.base@16.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@16.0.1/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+	at java.base@16.0.1/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:134)
+
+
+"Worker-Bootstrap-1" daemon prio=5 Id=19 RUNNABLE
+	at java.base@16.0.1/java.util.Objects.equals(Objects.java:64)
+	at app//com.mojang.datafixers.functions.PointFreeRule$SortProj.null doRewrite(null)(PointFreeRule.java:253)
+	at app//com.mojang.datafixers.functions.PointFreeRule$CompRewrite.null rewrite(null)(PointFreeRule.java:180)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:571)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:567)
+	at app//com.mojang.datafixers.functions.Comp.null one(null)(Comp.java:43)
+	at app//com.mojang.datafixers.functions.PointFreeRule$One.null rewrite(null)(PointFreeRule.java:651)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:571)
+	...
+
+
+"Worker-Bootstrap-2" daemon prio=5 Id=20 RUNNABLE
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:567)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:567)
+	at app//com.mojang.datafixers.functions.Comp.null one(null)(Comp.java:43)
+	at app//com.mojang.datafixers.functions.PointFreeRule$One.null rewrite(null)(PointFreeRule.java:651)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:571)
+	at app//com.mojang.datafixers.functions.Apply.null lambda$one$5(null)(Apply.java:46)
+	at app//com.mojang.datafixers.functions.Apply$$Lambda$1847/0x00000008010d90d0.get(Unknown Source)
+	at java.base@16.0.1/java.util.Optional.orElseGet(Optional.java:364)
+	...
+
+
+"Worker-Bootstrap-3" daemon prio=5 Id=21 RUNNABLE
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:567)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:567)
+	at app//com.mojang.datafixers.functions.Apply.null one(null)(Apply.java:45)
+	at app//com.mojang.datafixers.functions.PointFreeRule$One.null rewrite(null)(PointFreeRule.java:651)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:571)
+	at app//com.mojang.datafixers.functions.Comp.null lambda$one$4(null)(Comp.java:44)
+	at app//com.mojang.datafixers.functions.Comp$$Lambda$1859/0x00000008010dac18.get(Unknown Source)
+	at java.base@16.0.1/java.util.Optional.orElseGet(Optional.java:364)
+	...
+
+
+"Worker-Bootstrap-4" daemon prio=5 Id=22 RUNNABLE
+	at app//com.mojang.datafixers.functions.PointFreeRule$One.null rewrite(null)(PointFreeRule.java:651)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:571)
+	at app//com.mojang.datafixers.functions.Apply.null lambda$one$5(null)(Apply.java:46)
+	at app//com.mojang.datafixers.functions.Apply$$Lambda$1847/0x00000008010d90d0.get(Unknown Source)
+	at java.base@16.0.1/java.util.Optional.orElseGet(Optional.java:364)
+	at app//com.mojang.datafixers.functions.Apply.null one(null)(Apply.java:46)
+	at app//com.mojang.datafixers.functions.PointFreeRule$One.null rewrite(null)(PointFreeRule.java:651)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:571)
+	...
+
+
+"Worker-Bootstrap-5" daemon prio=5 Id=23 RUNNABLE
+	at java.base@16.0.1/java.util.AbstractMap.equals(AbstractMap.java:493)
+	at java.base@16.0.1/java.util.Objects.equals(Objects.java:64)
+	at app//com.mojang.datafixers.types.templates.TaggedChoice.null equals(null)(TaggedChoice.java:107)
+	at java.base@16.0.1/java.util.Objects.equals(Objects.java:64)
+	at app//com.mojang.datafixers.types.templates.Named.null equals(null)(Named.java:81)
+	at java.base@16.0.1/java.util.Objects.equals(Objects.java:64)
+	at app//com.mojang.datafixers.types.templates.Check.null equals(null)(Check.java:97)
+	at java.base@16.0.1/java.util.Objects.equals(Objects.java:64)
+	...
+
+
+"Worker-Bootstrap-6" daemon prio=5 Id=24 RUNNABLE
+	at app//com.mojang.datafixers.functions.PointFreeRule$SortInj.null doRewrite(null)(PointFreeRule.java:290)
+	at app//com.mojang.datafixers.functions.PointFreeRule$CompRewrite.null rewrite(null)(PointFreeRule.java:180)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:567)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:567)
+	at app//com.mojang.datafixers.functions.Comp.null one(null)(Comp.java:43)
+	at app//com.mojang.datafixers.functions.PointFreeRule$One.null rewrite(null)(PointFreeRule.java:651)
+	at app//com.mojang.datafixers.functions.PointFreeRule$OrElse.null rewrite(null)(PointFreeRule.java:571)
+	at app//com.mojang.datafixers.functions.Comp.null one(null)(Comp.java:43)
+	...
+
+
+"Worker-Bootstrap-7" daemon prio=5 Id=25 RUNNABLE
+	at java.base@16.0.1/java.util.Objects.equals(Objects.java:64)
+	at app//com.mojang.datafixers.types.templates.Product.null equals(null)(Product.java:144)
+	at java.base@16.0.1/java.util.AbstractMap.equals(AbstractMap.java:493)
+	at java.base@16.0.1/java.util.Objects.equals(Objects.java:64)
+	at app//com.mojang.datafixers.types.templates.TaggedChoice.null equals(null)(TaggedChoice.java:107)
+	at java.base@16.0.1/java.util.Objects.equals(Objects.java:64)
+	at app//com.mojang.datafixers.types.templates.Named.null equals(null)(Named.java:81)
+	at java.base@16.0.1/java.util.Objects.equals(Objects.java:64)
+	...
+
+
+"Timer hack thread" daemon prio=5 Id=26 TIMED_WAITING
+	at java.base@16.0.1/java.lang.Thread.sleep(Native Method)
+	at app//net.minecraft.Util$7.void run()(Util.java:714)
+
+
+"Worker-Main-8" daemon prio=5 Id=27 TIMED_WAITING on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:293)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1624)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Worker-Main-9" daemon prio=5 Id=28 WAITING on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:211)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1633)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Worker-Main-10" daemon prio=5 Id=29 WAITING on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:211)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1633)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Worker-Main-11" daemon prio=5 Id=30 WAITING on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:211)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1633)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Worker-Main-12" daemon prio=5 Id=31 WAITING on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:211)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1633)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Worker-Main-13" daemon prio=5 Id=32 WAITING on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:211)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1633)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Worker-Main-14" daemon prio=5 Id=33 WAITING on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@2d69bac9
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:211)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1633)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Snooper Timer" daemon prio=5 Id=35 WAITING on java.util.TaskQueue@686b3100
+	at java.base@16.0.1/java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@686b3100
+	at java.base@16.0.1/java.lang.Object.wait(Object.java:320)
+	at java.base@16.0.1/java.util.TimerThread.mainLoop(Timer.java:527)
+	at java.base@16.0.1/java.util.TimerThread.run(Timer.java:506)
+
+
+"Server thread" prio=5 Id=34 RUNNABLE
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.unpark(Native Method)
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:177)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.signalWork(ForkJoinPool.java:1495)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.externalPush(ForkJoinPool.java:1912)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.externalSubmit(ForkJoinPool.java:1930)
+	at java.base@16.0.1/java.util.concurrent.ForkJoinPool.execute(ForkJoinPool.java:2462)
+	at app//net.minecraft.util.thread.ProcessorMailbox.void registerForExecution()(ProcessorMailbox.java:116)
+	at app//net.minecraft.util.thread.ProcessorMailbox.void tell(java.lang.Object)(ProcessorMailbox.java:109)
+	...
+
+
+"DestroyJavaVM" prio=5 Id=37 RUNNABLE
+
+
+"Server console handler" daemon prio=5 Id=38 RUNNABLE (in native)
+	at java.base@16.0.1/java.io.FileInputStream.readBytes(Native Method)
+	at java.base@16.0.1/java.io.FileInputStream.read(FileInputStream.java:271)
+	at java.base@16.0.1/java.io.BufferedInputStream.read1(BufferedInputStream.java:282)
+	at java.base@16.0.1/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	-  locked java.io.BufferedInputStream@415e39ad
+	at java.base@16.0.1/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:297)
+	at java.base@16.0.1/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:339)
+	at java.base@16.0.1/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	-  locked java.io.InputStreamReader@59495d5e
+	at java.base@16.0.1/java.io.InputStreamReader.read(InputStreamReader.java:178)
+	...
+
+
+"ObjectCleanerThread" daemon prio=1 Id=39 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@39960b4c
+	at java.base@16.0.1/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@39960b4c
+	at java.base@16.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at app//io.netty.util.internal.ObjectCleaner$1.null run(null)(ObjectCleaner.java:54)
+	at app//io.netty.util.concurrent.FastThreadLocalRunnable.null run(null)(FastThreadLocalRunnable.java:30)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"Netty Epoll Server IO #0" daemon prio=5 Id=40 RUNNABLE
+	at app//io.netty.channel.epoll.Native.epollWait0(Native Method)
+	at app//io.netty.channel.epoll.Native.null epollWait(null)(Native.java:114)
+	at app//io.netty.channel.epoll.EpollEventLoop.null epollWait(null)(EpollEventLoop.java:239)
+	at app//io.netty.channel.epoll.EpollEventLoop.null run(null)(EpollEventLoop.java:256)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.null run(null)(SingleThreadEventExecutor.java:884)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"IO-Worker-16" prio=5 Id=42 TIMED_WAITING on java.util.concurrent.SynchronousQueue$TransferStack@844ce4f
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$TransferStack@844ce4f
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+	at java.base@16.0.1/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462)
+	at java.base@16.0.1/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+	at java.base@16.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937)
+	at java.base@16.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1055)
+	at java.base@16.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1116)
+	at java.base@16.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	...
+
+
+"IO-Worker-17" prio=5 Id=43 TIMED_WAITING on java.util.concurrent.SynchronousQueue$TransferStack@844ce4f
+	at java.base@16.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$TransferStack@844ce4f
+	at java.base@16.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+	at java.base@16.0.1/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462)
+	at java.base@16.0.1/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+	at java.base@16.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937)
+	at java.base@16.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1055)
+	at java.base@16.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1116)
+	at java.base@16.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	...
+
+
+"Netty Epoll Server IO #1" daemon prio=5 Id=45 RUNNABLE
+	at app//io.netty.channel.epoll.Native.epollWait0(Native Method)
+	at app//io.netty.channel.epoll.Native.null epollWait(null)(Native.java:114)
+	at app//io.netty.channel.epoll.EpollEventLoop.null epollWait(null)(EpollEventLoop.java:239)
+	at app//io.netty.channel.epoll.EpollEventLoop.null run(null)(EpollEventLoop.java:256)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.null run(null)(SingleThreadEventExecutor.java:884)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"Netty Epoll Server IO #2" daemon prio=5 Id=46 RUNNABLE
+	at app//io.netty.channel.epoll.Native.epollWait0(Native Method)
+	at app//io.netty.channel.epoll.Native.null epollWait(null)(Native.java:114)
+	at app//io.netty.channel.epoll.EpollEventLoop.null epollWait(null)(EpollEventLoop.java:239)
+	at app//io.netty.channel.epoll.EpollEventLoop.null run(null)(EpollEventLoop.java:256)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.null run(null)(SingleThreadEventExecutor.java:884)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"Netty Epoll Server IO #3" daemon prio=5 Id=50 RUNNABLE
+	at app//io.netty.channel.epoll.Native.epollWait0(Native Method)
+	at app//io.netty.channel.epoll.Native.null epollWait(null)(Native.java:114)
+	at app//io.netty.channel.epoll.EpollEventLoop.null epollWait(null)(EpollEventLoop.java:239)
+	at app//io.netty.channel.epoll.EpollEventLoop.null run(null)(EpollEventLoop.java:256)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.null run(null)(SingleThreadEventExecutor.java:884)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"Netty Epoll Server IO #4" daemon prio=5 Id=51 RUNNABLE
+	at app//io.netty.channel.epoll.Native.epollWait0(Native Method)
+	at app//io.netty.channel.epoll.Native.null epollWait(null)(Native.java:114)
+	at app//io.netty.channel.epoll.EpollEventLoop.null epollWait(null)(EpollEventLoop.java:239)
+	at app//io.netty.channel.epoll.EpollEventLoop.null run(null)(EpollEventLoop.java:256)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.null run(null)(SingleThreadEventExecutor.java:884)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"Netty Epoll Server IO #5" daemon prio=5 Id=52 RUNNABLE
+	at app//io.netty.channel.epoll.Native.epollWait0(Native Method)
+	at app//io.netty.channel.epoll.Native.null epollWait(null)(Native.java:114)
+	at app//io.netty.channel.epoll.EpollEventLoop.null epollWait(null)(EpollEventLoop.java:239)
+	at app//io.netty.channel.epoll.EpollEventLoop.null run(null)(EpollEventLoop.java:256)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.null run(null)(SingleThreadEventExecutor.java:884)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"Query Listener #1" prio=5 Id=53 RUNNABLE
+	at java.base@16.0.1/sun.nio.ch.Net.poll(Native Method)
+	at java.base@16.0.1/sun.nio.ch.SelChImpl.park(SelChImpl.java:92)
+	at java.base@16.0.1/sun.nio.ch.DatagramChannelImpl.trustedBlockingReceive(DatagramChannelImpl.java:702)
+	at java.base@16.0.1/sun.nio.ch.DatagramChannelImpl.blockingReceive(DatagramChannelImpl.java:630)
+	at java.base@16.0.1/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:239)
+	at java.base@16.0.1/java.net.DatagramSocket.receive(DatagramSocket.java:567)
+	at app//net.minecraft.server.rcon.thread.QueryThreadGs4.void run()(QueryThreadGs4.java:258)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.locks.ReentrantLock$NonfairSync@38671dbb
+
+
+"Server Watchdog" daemon prio=5 Id=54 RUNNABLE
+	at java.management@16.0.1/sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at java.management@16.0.1/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:521)
+	at java.management@16.0.1/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:509)
+	at app//net.minecraft.server.dedicated.ServerWatchdog.void run()(ServerWatchdog.java:49)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"Java2D Disposer" daemon prio=10 Id=55 WAITING on java.lang.ref.ReferenceQueue$Lock@2b571444
+	at java.base@16.0.1/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@2b571444
+	at java.base@16.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@16.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	at java.desktop@16.0.1/sun.java2d.Disposer.run(Disposer.java:144)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"Netty Epoll Server IO #6" daemon prio=5 Id=57 RUNNABLE
+	at app//io.netty.channel.epoll.Native.epollWait0(Native Method)
+	at app//io.netty.channel.epoll.Native.null epollWait(null)(Native.java:114)
+	at app//io.netty.channel.epoll.EpollEventLoop.null epollWait(null)(EpollEventLoop.java:239)
+	at app//io.netty.channel.epoll.EpollEventLoop.null run(null)(EpollEventLoop.java:256)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.null run(null)(SingleThreadEventExecutor.java:884)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+"Netty Epoll Server IO #7" daemon prio=5 Id=58 RUNNABLE
+	at app//io.netty.channel.epoll.Native.epollWait0(Native Method)
+	at app//io.netty.channel.epoll.Native.null epollWait(null)(Native.java:114)
+	at app//io.netty.channel.epoll.EpollEventLoop.null epollWait(null)(EpollEventLoop.java:239)
+	at app//io.netty.channel.epoll.EpollEventLoop.null run(null)(EpollEventLoop.java:256)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.null run(null)(SingleThreadEventExecutor.java:884)
+	at java.base@16.0.1/java.lang.Thread.run(Thread.java:831)
+
+
+
+Stacktrace:
+	at net.minecraft.server.dedicated.ServerWatchdog.void run()(ServerWatchdog.java:65)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+
+-- Performance stats --
+Details:
+	Random tick rate: 1000
+	Level stats: ResourceKey[minecraft:dimension / minecraft:overworld]: players: 1, entities: 252,252,152,544,544,0,0 [minecraft:skeleton:24,minecraft:zombie:24,minecraft:cow:22,minecraft:pig:21,minecraft:item:19], block_entities: 18 [minecraft:mob_spawner:12,minecraft:smoker:3,minecraft:blast_furnace:2,minecraft:bell:1], block_ticks: 2683, fluid_ticks: 46, chunk_source: Chunks[S] W: 2119 E: 252,252,152,544,544,0,0,
+ResourceKey[minecraft:dimension / minecraft:the_nether]: players: 0, entities: 0,0,0,0,0,0,0 [], block_entities: 0 [], block_ticks: 0, fluid_ticks: 0, chunk_source: Chunks[S] W: 0 E: 0,0,0,0,0,0,0,
+ResourceKey[minecraft:dimension / minecraft:the_end]: players: 0, entities: 0,0,0,0,0,0,0 [], block_entities: 0 [], block_ticks: 0, fluid_ticks: 0, chunk_source: Chunks[S] W: 0 E: 0,0,0,0,0,0,0
+
+-- System Details --
+Details:
+	Minecraft Version: 1.17
+	Minecraft Version ID: 1.17
+	Operating System: Linux (amd64) version 5.4.0-72-generic
+	Java Version: 16.0.1, Oracle Corporation
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 5263238384 bytes (5019 MiB) / 5754585088 bytes (5488 MiB) up to 8489271296 bytes (8096 MiB)
+	CPUs: 8
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Xeon(R) CPU           L5640  @ 2.27GHz
+	Identifier: Intel64 Family 6 Model 44 Stepping 2
+	Microarchitecture: Westmere (Server)
+	Frequency (GHz): 2.27
+	Number of physical packages: 2
+	Number of physical CPUs: 8
+	Number of logical CPUs: 8
+	Graphics card #0 name: unknown
+	Graphics card #0 vendor: unknown
+	Graphics card #0 VRAM (MB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MB): 12158.95
+	Virtual memory used (MB): 7191.68
+	Swap memory total (MB): 4096.00
+	Swap memory used (MB): 2.75
+	JVM Flags: 2 total; -Xms128M -Xmx8096M
+	Player Count: 1 / 20; [abs['Sebby_Sarkid'/249, l='ServerLevel[CommieCraft Season 1]', x=12.95, y=75.00, z=6.25]]
+	Data Packs: vanilla
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)

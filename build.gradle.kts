@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.urielsalis"
-version = "2.0.2"
+version = "2.0.3"
 
 val arrowVersion = "0.10.4"
 
@@ -21,7 +21,7 @@ dependencies {
     implementation("io.arrow-kt", "arrow-core", arrowVersion)
     implementation("io.arrow-kt", "arrow-syntax", arrowVersion)
     implementation("io.arrow-kt", "arrow-fx", arrowVersion)
-    implementation("com.guardsquare", "proguard-retrace", "7.1.0-beta3")
+    implementation("com.guardsquare", "proguard-retrace", "7.1.0-beta5")
     implementation("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.12.3")
 
     testImplementation("org.junit.jupiter", "junit-jupiter", "5.7.1")
