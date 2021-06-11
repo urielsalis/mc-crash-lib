@@ -77,7 +77,10 @@ fun getDeobfuscation(
             return null
         }
     }
-    val retrace = ReTrace(ReTrace.REGULAR_EXPRESSION, false, true, mappingFile)
+    // Matches <whitespace>at<whitespace>(modulename)//(className).(method)((sourcefile):(line))
+    val java16Regex = "(?:.*?\\bat\\s+[a-zA-Z]*\\//)%c\\.%m\\(%s:%l\\)"
+    val regex = ReTrace.REGULAR_EXPRESSION + "|(?:" + java16Regex + ")"
+    val retrace = ReTrace(regex, false, true, mappingFile)
     val stringWriter = StringWriter()
     val printWriter = PrintWriter(stringWriter)
     retrace.retrace(LineNumberReader(StringReader(content)), printWriter)
