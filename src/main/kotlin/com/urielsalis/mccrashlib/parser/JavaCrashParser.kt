@@ -19,7 +19,16 @@ class JavaCrashParser : CrashParser {
         val importantLine = linesWithMarker.firstOrNone { it.startsWith("# C") && "[" in it && "+" in it }
         return importantLine.fold(
             { Either.left(IncompleteJavaCrash) },
-            { Either.right(Crash.Java(it.substring(it.indexOf('[') + 1, it.indexOf('+')))) }
+            { Either.right(Crash.Java(
+                isModded(lines),
+                it.substring(it.indexOf('[') + 1, it.indexOf('+')))
+            ) }
         )
+    }
+
+    private fun isModded(lines: List<String>): Boolean {
+        // Note: Checking for any occurrence of "--tweakClass" might be error-prone in case
+        // vanilla uses it as well
+        return lines.any { it.contains("--tweakClass optifine.OptiFineTweaker") }
     }
 }

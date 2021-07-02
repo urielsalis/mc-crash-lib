@@ -10,6 +10,9 @@ sealed class Crash {
         val deobfException: String?
     ) : Crash()
 
-    data class Java(val code: String) : Crash()
+    data class Java(
+        val modded: Boolean,
+        val code: String
+    ) : Crash()
     object LauncherLog : Crash()
 }
