@@ -71,13 +71,15 @@ class CrashReaderIntegrationTest {
     fun shouldRunAllJavaCrashes(crashFile: File) {
         val name = crashFile.name
         val parts = name.split("-")
-        val expectedCode = parts[0]
+        val isModded = parts[0] == "true"
+        val expectedCode = parts[1]
 
         val crashEither = crashReader.processCrash(crashFile.readLines(), tempDir)
         assertTrue(crashEither is Either.Right)
         val crash = (crashEither as Either.Right).b
         assertTrue(crash is Crash.Java)
-        assertEquals(expectedCode, (crash as Crash.Java).code)
+        assertEquals(isModded, (crash as Crash.Java).modded)
+        assertEquals(expectedCode, crash.code)
     }
 
     @ParameterizedTest
