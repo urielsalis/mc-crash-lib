@@ -27,8 +27,14 @@ class JavaCrashParser : CrashParser {
     }
 
     private fun isModded(lines: List<String>): Boolean {
-        // Note: Checking for any occurrence of "--tweakClass" might be error-prone in case
-        // vanilla uses it as well
-        return lines.any { it.contains("--tweakClass optifine.OptiFineTweaker") }
+        val moddedStrings = listOf(
+            // Note: Checking for any occurrence of "--tweakClass" might be error-prone in case
+            // vanilla uses it as well
+            "--tweakClass optifine.OptiFineTweaker",
+            "net.fabricmc.loader.launch.knot.KnotClient",
+            "net.fabricmc.loader.impl.launch.knot.KnotClient", // new class name
+            "--version fabric-loader-"
+        )
+        return lines.any { moddedStrings.any(it::contains) }
     }
 }
