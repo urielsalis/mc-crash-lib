@@ -2,6 +2,7 @@ package com.urielsalis.mccrashlib
 
 sealed class Crash {
     object Unknown : Crash()
+
     data class Minecraft(
         val modded: Boolean,
         val exception: String,
@@ -13,9 +14,10 @@ sealed class Crash {
         val deobfException: String?
     ) : Crash()
 
-    data class Java(
+    data class Jvm(
         val modded: Boolean,
         val code: String
     ) : Crash()
+
     object LauncherLog : Crash()
 }

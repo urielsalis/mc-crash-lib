@@ -67,8 +67,8 @@ class CrashReaderIntegrationTest {
     }
 
     @ParameterizedTest
-    @ResourceFilesSource("crashes/java")
-    fun shouldRunAllJavaCrashes(crashFile: File) {
+    @ResourceFilesSource("crashes/jvm")
+    fun shouldRunAllJvmCrashes(crashFile: File) {
         val name = crashFile.name
         val parts = name.split("-")
         val isModded = parts[0] == "true"
@@ -77,8 +77,8 @@ class CrashReaderIntegrationTest {
         val crashEither = crashReader.processCrash(crashFile.readLines(), tempDir)
         assertTrue(crashEither is Either.Right)
         val crash = (crashEither as Either.Right).b
-        assertTrue(crash is Crash.Java)
-        assertEquals(isModded, (crash as Crash.Java).modded)
+        assertTrue(crash is Crash.Jvm)
+        assertEquals(isModded, (crash as Crash.Jvm).modded)
         assertEquals(expectedCode, crash.code)
     }
 
