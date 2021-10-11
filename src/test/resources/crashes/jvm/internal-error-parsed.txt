@@ -1,0 +1,59 @@
+{
+  "exception" : "Internal Error (ciMethodData.cpp:328), pid=628, tid=20668",
+  "problematicFrame" : null,
+  "nativeFrames" : [ {
+    "location" : "[jvm.dll+0x679d8a]"
+  }, {
+    "location" : "[jvm.dll+0x82cc59]"
+  }, {
+    "location" : "[jvm.dll+0x82e40e]"
+  }, {
+    "location" : "[jvm.dll+0x82ea17]"
+  }, {
+    "location" : "[jvm.dll+0x24ec2c]"
+  }, {
+    "location" : "[jvm.dll+0x24eb73]"
+  }, {
+    "location" : "[jvm.dll+0x1d9cf1]"
+  }, {
+    "location" : "[jvm.dll+0x1da789]"
+  }, {
+    "location" : "[jvm.dll+0x1d4ef4]"
+  }, {
+    "location" : "[jvm.dll+0x1d50a9]"
+  }, {
+    "location" : "[jvm.dll+0x21f04b]"
+  }, {
+    "location" : "[jvm.dll+0x1ac56b]"
+  }, {
+    "location" : "[jvm.dll+0x22f918]"
+  }, {
+    "location" : "[jvm.dll+0x22d99c]"
+  }, {
+    "location" : "[jvm.dll+0x7e1d02]"
+  }, {
+    "location" : "[jvm.dll+0x7db83a]"
+  }, {
+    "location" : "[jvm.dll+0x678bb6]"
+  }, {
+    "location" : "[ucrtbase.dll+0x21bb2]",
+    "libraryName" : "ucrtbase.dll",
+    "libraryOffset" : "0x21bb2",
+    "functionName" : null,
+    "functionOffset" : null
+  }, {
+    "location" : "[KERNEL32.DLL+0x17034]",
+    "libraryName" : "KERNEL32.DLL",
+    "libraryOffset" : "0x17034",
+    "functionName" : null,
+    "functionOffset" : null
+  }, {
+    "location" : "[ntdll.dll+0x52651]",
+    "libraryName" : "ntdll.dll",
+    "libraryOffset" : "0x52651",
+    "functionName" : null,
+    "functionOffset" : null
+  } ],
+  "javaFrames" : null,
+  "isModded" : false
+}

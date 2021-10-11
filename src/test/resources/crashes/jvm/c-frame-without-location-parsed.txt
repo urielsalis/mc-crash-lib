@@ -1,0 +1,29 @@
+{
+  "exception" : "EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x0000000000000000, pid=10652, tid=4420",
+  "problematicFrame" : {
+    "location" : "0x0000000000000000",
+    "libraryName" : null,
+    "libraryOffset" : null,
+    "functionName" : null,
+    "functionOffset" : null
+  },
+  "nativeFrames" : [ ],
+  "javaFrames" : [ {
+    "location" : "org.lwjgl.system.JNI.invokePPPP(IIJJJJ)J+0"
+  }, {
+    "location" : "org.lwjgl.glfw.GLFW.nglfwCreateWindow(IIJJJ)J+14"
+  }, {
+    "location" : "org.lwjgl.glfw.GLFW.glfwCreateWindow(IILjava/lang/CharSequence;JJ)J+37"
+  }, {
+    "location" : "dpr.<init>(Ldps;Ldpo;Ldpd;Ljava/lang/String;Ljava/lang/String;)V+286"
+  }, {
+    "location" : "enx.a(Ldpd;Ljava/lang/String;Ljava/lang/String;)Ldpr;+15"
+  }, {
+    "location" : "dvp.<init>(Leey;)V+712"
+  }, {
+    "location" : "net.minecraft.client.main.Main.main([Ljava/lang/String;)V+1211"
+  }, {
+    "location" : "~StubRoutines::call_stub"
+  } ],
+  "isModded" : false
+}

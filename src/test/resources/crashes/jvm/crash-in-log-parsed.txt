@@ -1,0 +1,13 @@
+{
+  "exception" : "EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000000c1c1c82, pid=2768, tid=2780",
+  "problematicFrame" : {
+    "location" : "[ig75icd64.dll+0x1c82]",
+    "libraryName" : "ig75icd64.dll",
+    "libraryOffset" : "0x1c82",
+    "functionName" : null,
+    "functionOffset" : null
+  },
+  "nativeFrames" : null,
+  "javaFrames" : null,
+  "isModded" : false
+}

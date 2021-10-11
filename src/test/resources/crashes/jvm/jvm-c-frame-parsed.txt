@@ -1,0 +1,11 @@
+{
+  "exception" : "EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff6d15cd36, pid=5560, tid=5260",
+  "problematicFrame" : {
+    "location" : "[jvm.dll+0xcd36]"
+  },
+  "nativeFrames" : [ {
+    "location" : "[jvm.dll+0xcd36]"
+  } ],
+  "javaFrames" : null,
+  "isModded" : false
+}
