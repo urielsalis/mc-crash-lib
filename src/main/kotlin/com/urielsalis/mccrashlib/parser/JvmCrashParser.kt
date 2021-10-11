@@ -11,15 +11,15 @@ import java.io.File
     # C  [xxxxxxxx+0x1c82]
     where we want to extract the xxxxxx
  */
-class JavaCrashParser : CrashParser {
-    object IncompleteJavaCrash : ParserError
+class JvmCrashParser : CrashParser {
+    object IncompleteJvmCrash : ParserError
 
     override fun parse(lines: List<String>, mappingsDirectory: File): Either<ParserError, Crash> {
         val linesWithMarker = lines.map(String::trim).filter { it.startsWith("#") }
         val importantLine = linesWithMarker.firstOrNone { it.startsWith("# C") && "[" in it && "+" in it }
         return importantLine.fold(
-            { Either.left(IncompleteJavaCrash) },
-            { Either.right(Crash.Java(
+            { Either.left(IncompleteJvmCrash) },
+            { Either.right(Crash.Jvm(
                 isModded(lines),
                 it.substring(it.indexOf('[') + 1, it.indexOf('+')))
             ) }
