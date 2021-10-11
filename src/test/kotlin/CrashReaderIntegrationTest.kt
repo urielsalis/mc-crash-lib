@@ -1,4 +1,5 @@
 import arrow.core.Either
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.urielsalis.mccrashlib.Crash
 import com.urielsalis.mccrashlib.CrashReader
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -26,8 +27,8 @@ class CrashReaderIntegrationTest {
         private lateinit var directory: String
         private lateinit var ignoredNameSuffixes: Array<String>
 
-        override fun accept(t: ResourceFilesSource?) {
-            directory = t!!.directory
+        override fun accept(t: ResourceFilesSource) {
+            directory = t.directory
             ignoredNameSuffixes = t.ignoredNameSuffixes
         }
 
@@ -67,19 +68,21 @@ class CrashReaderIntegrationTest {
     }
 
     @ParameterizedTest
-    @ResourceFilesSource("crashes/jvm")
+    @ResourceFilesSource("crashes/jvm", ignoredNameSuffixes = ["-parsed"])
     fun shouldRunAllJvmCrashes(crashFile: File) {
-        val name = crashFile.name
-        val parts = name.split("-")
-        val isModded = parts[0] == "true"
-        val expectedCode = parts[1]
+        val expectedParsedCrashString = File(crashFile.parent, crashFile.nameWithoutExtension + "-parsed.txt")
+            .takeIf(File::isFile)?.readText()
 
         val crashEither = crashReader.processCrash(crashFile.readLines(), tempDir)
         assertTrue(crashEither is Either.Right)
         val crash = (crashEither as Either.Right).b
         assertTrue(crash is Crash.Jvm)
-        assertEquals(isModded, (crash as Crash.Jvm).modded)
-        assertEquals(expectedCode, crash.code)
+
+        val mapper = jacksonObjectMapper()
+        // For simplicity compare the JSON string representation of the parsed crash
+        val actualParsedCrashString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(crash)
+
+        assertEquals(expectedParsedCrashString, actualParsedCrashString)
     }
 
     @ParameterizedTest
@@ -95,7 +98,7 @@ class CrashReaderIntegrationTest {
     private fun String.dropLastLineTerminator() = removeSuffix("\n").removeSuffix("\r")
 
     @ParameterizedTest
-    @ResourceFilesSource("crashes/deobfuscator", ignoredNameSuffixes = ["deobf"])
+    @ResourceFilesSource("crashes/deobfuscator", ignoredNameSuffixes = ["-deobf"])
     fun shouldProcessDeobfuscation(crashFile: File) {
         val either = crashReader.processCrash(crashFile.readLines(), tempDir)
         val deobfContent = File(crashFile.parent, crashFile.nameWithoutExtension + "-deobf.txt")

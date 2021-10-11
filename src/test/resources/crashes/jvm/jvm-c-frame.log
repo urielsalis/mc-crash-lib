@@ -1,0 +1,158 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff6d15cd36, pid=5560, tid=5260
+#
+# JRE version: OpenJDK Runtime Environment Microsoft-22300 (16.0.1+9) (build 16.0.1+9)
+# Java VM: OpenJDK 64-Bit Server VM Microsoft-22300 (16.0.1+9, mixed mode, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# V  [jvm.dll+0xcd36]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/microsoft/openjdk/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump ...
+
+Host: AMD Phenom(tm) II X4 965 Processor, 4 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1023)
+Time: Mon Jul  5 17:50:08 2021 SE Asia Standard Time elapsed time: 407.979170 seconds (0d 0h 6m 47s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000207761e0f60):  ConcurrentGCThread "G1 Conc#0" [stack: 0x00000097d9c00000,0x00000097d9d00000] [id=5260]
+
+Stack: [0x00000097d9c00000,0x00000097d9d00000],  sp=0x00000097d9cff2a8,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0xcd36]
+
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x00000001404cf3a8
+
+
+Register to memory mapping:
+
+RIP=0x00007fff6d15cd36 jvm.dll
+RAX=0x5244925224a48800 is an unknown value
+RBX=0x00000207761de401 points into unknown readable memory: 00 00 00 00 00 00 00
+RCX=
+[error occurred during error reporting (printing register info), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff6d4265fa]
+
+Registers:
+RAX=0x5244925224a48800, RBX=0x00000207761de401, RCX=0x00000000871d9c10, RDX=0x00000000871d9c10
+RSP=0x00000097d9cff2a8, RBP=0x0000000000000000, RSI=0x00000207761de440, RDI=0x00000000871d9c10
+R8 =0x000002077cd27670, R9 =0x00000001404cf3a0, R10=0x0000000000000040, R11=0x0000000000000003
+R12=0x0000000000000000, R13=0xaaaaaaaaaaaaaaab, R14=0x00000001004d0668, R15=0x00000000871d9bf8
+RIP=0x00007fff6d15cd36, EFLAGS=0x0000000000010206
+
+Top of Stack: (sp=0x00000097d9cff2a8)
+0x00000097d9cff2a8:   00007fff6d429b38 000000000002625a
+0x00000097d9cff2b8:   00007fff6d429b38 0000133f3d9655e1
+0x00000097d9cff2c8:   00007fff6d429b38 00000000871d9c10
+0x00000097d9cff2d8:   00007fff6d4297bf 00000207761e25a0
+0x00000097d9cff2e8:   00000097d9cff4a0 00000001004d0660
+0x00000097d9cff2f8:   00007fff6d4297bf 00000000871d9c0c
+0x00000097d9cff308:   00007fff6d427a2d 00000000871d9c04
+0x00000097d9cff318:   00007fff6d42802d 000000008d36da44
+0x00000097d9cff328:   00007fff6d427a2d 00000097d9cff460
+0x00000097d9cff338:   0000000000000000 00000000871d9bf8
+0x00000097d9cff348:   00007fff6d427691 00000001004d0460
+0x00000097d9cff358:   0000000000000003 00000097d9cff4a0
+0x00000097d9cff368:   00007fff6d427691 00000000871d9bf8
+0x00000097d9cff378:   00007fff6d43bb88 00000207761e25a0
+0x00000097d9cff388:   0000000000000040 0000000000000041
+0x00000097d9cff398:   00007fff6d43df8e 0000000000000001 
+
+Instructions: (pc=0x00007fff6d15cd36)
+0x00007fff6d15cc36:   b9 10 00 00 00 48 8b d3 48 8b 0c 39 48 83 c1 28
+0x00007fff6d15cc46:   e8 f5 fa 6a 00 48 8b 7c 24 30 48 83 c4 20 5b c3
+0x00007fff6d15cc56:   cc cc cc cc cc cc cc cc cc cc 8b 05 42 24 ae 00
+0x00007fff6d15cc66:   c3 cc cc cc cc cc cc cc cc cc 0f b6 05 9a d3 b4
+0x00007fff6d15cc76:   00 48 8b d1 84 c0 74 16 44 8b 41 08 8b 0d 20 24
+0x00007fff6d15cc86:   ae 00 49 d3 e0 4c 03 05 0e 24 ae 00 eb 04 4c 8b
+0x00007fff6d15cc96:   41 08 45 8b 50 08 45 85 d2 7e 0e 41 f6 c2 01 75
+0x00007fff6d15cca6:   53 41 c1 fa 03 41 8b c2 c3 79 49 84 c0 b9 10 00
+0x00007fff6d15ccb6:   00 00 8b 05 36 33 ae 00 41 b8 0c 00 00 00 41 0f
+0x00007fff6d15ccc6:   45 c8 ff c8 4c 63 c8 48 63 14 11 41 8b ca 83 e1
+0x00007fff6d15ccd6:   3f 48 d3 e2 41 8b ca 48 c1 f9 10 0f b6 c1 49 8d
+0x00007fff6d15cce6:   0c 11 49 f7 d1 48 03 c1 49 c1 e9 03 48 c1 e8 03
+0x00007fff6d15ccf6:   41 23 c1 c3 49 8b 00 49 8b c8 48 ff a0 f0 00 00
+0x00007fff6d15cd06:   00 cc cc cc cc cc cc cc cc cc 8b 44 24 30 45 03
+0x00007fff6d15cd16:   c9 44 2b 4c 24 28 83 c0 0b 44 03 ca 45 03 c8 41
+0x00007fff6d15cd26:   03 c1 c3 cc cc cc cc cc cc cc 4c 8b ca 48 8b d1
+0x00007fff6d15cd36:   45 8b 41 08 45 85 c0 7e 0e 41 f6 c0 01 75 56 41
+0x00007fff6d15cd46:   c1 f8 03 41 8b c0 c3 79 4c 80 3d bb d2 b4 00 00
+0x00007fff6d15cd56:   b8 0c 00 00 00 b9 10 00 00 00 0f 45 c8 8b 05 8b
+0x00007fff6d15cd66:   32 ae 00 ff c8 4c 63 c8 48 63 14 11 41 8b c8 83
+0x00007fff6d15cd76:   e1 3f 48 d3 e2 41 8b c8 48 c1 f9 10 0f b6 c1 49
+0x00007fff6d15cd86:   8d 0c 11 49 f7 d1 48 03 c1 49 c1 e9 03 48 c1 e8
+0x00007fff6d15cd96:   03 41 23 c1 c3 49 8b 01 49 8b c9 48 ff a0 f0 00
+0x00007fff6d15cda6:   00 00 cc cc cc cc cc cc cc cc 48 8b 41 08 0f b7
+0x00007fff6d15cdb6:   48 32 0f b7 40 30 83 c0 48 03 c1 c3 cc cc cc cc
+0x00007fff6d15cdc6:   cc cc cc cc cc cc cc cc cc cc 48 89 5c 24 08 57
+0x00007fff6d15cdd6:   48 83 ec 20 0f b6 05 4f a0 b8 00 48 8b fa 48 8b
+0x00007fff6d15cde6:   d9 84 c0 74 4f 48 85 15 36 98 b8 00 74 38 48 8b
+0x00007fff6d15cdf6:   ca e8 b4 18 85 00 48 8b d0 48 85 db 74 25 48 85
+0x00007fff6d15ce06:   c0 74 20 48 8b c7 f0 48 0f b1 13 74 16 48 85 05
+0x00007fff6d15ce16:   0e 98 b8 00 74 0d 48 8b c8 f0 48 0f b1 13 48 3b
+0x00007fff6d15ce26:   c1 75 ea 48 8b fa 48 8b c7 48 8b 5c 24 30 48 83 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x00007fff6d429b38 jvm.dll
+stack at sp + 1 slots: 0x000000000002625a is an unknown value
+stack at sp + 2 slots: 0x00007fff6d429b38 jvm.dll
+stack at sp + 3 slots: 0x0000133f3d9655e1 is an unknown value
+stack at sp + 4 slots: 0x00007fff6d429b38 jvm.dll
+stack at sp + 5 slots: 
+[error occurred during error reporting (inspecting top of stack), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff6d4265fa]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000207184e9280, length=41, elements={
+0x00000207761b1d20, 0x000002077efb11e0, 0x000002077efb2550, 0x000002077effa800,
+0x000002077effb110, 0x000002077effd1d0, 0x000002077effea20, 0x000002077f009a20,
+0x000002077f019ea0, 0x000002077f00efa0, 0x000002077fcfe000, 0x000002077fd0aa40,
+0x00000207120b9060, 0x00000207120bc580, 0x0000020714ce8c50, 0x0000020714ce6c70,
+0x0000020714ce4740, 0x0000020714ce71c0, 0x0000020714ce5c80, 0x0000020714ce81b0,
+0x0000020714ce8700, 0x0000020714ce61d0, 0x0000020714cea6e0, 0x00000207123c1f60,
+0x00000207123c5480, 0x00000207123c2f50, 0x00000207123c34a0, 0x00000207123c24b0,
+0x00000207123c79b0, 0x00000207123c0f70, 0x0000020717ebd110, 0x0000020717ec0b80,
+0x0000020717ec10d0, 0x0000020717ec00e0, 0x0000020717ebfb90, 0x0000020717ebf640,
+0x0000020717ec2b60, 0x0000020717ec30b0, 0x00000207123c7f00, 0x00000207123c49e0,
+0x00000207123c6470
+}
+
+Java Threads: ( => current thread )
+  0x00000207761b1d20 JavaThread "Render thread" [_thread_in_native, id=4052, stack(0x00000097d9900000,0x00000097d9a00000)]
+
+...
+
+Environment Variables:
+PATH= ...
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 16 Model 4 Stepping 3, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.1023)
+OS uptime: 0 days 1:04 hours
+
+CPU: total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 16 model 4 stepping 3 microcode 0x0, cx8, cmov, fxsr, mmx, 3dnowpref, sse, sse2, sse3, sse4a, popcnt, lzcnt, tsc, tscinvbit, clflush
+
+Memory: 4k page, system-wide physical 8191M (3478M free)
+TotalPageFile size 24575M (AvailPageFile size 18255M)
+current process WorkingSet (physical memory assigned to process): 2330M, peak: 2422M
+current process commit charge ("private bytes"): 2510M, peak: 2652M
+
+vm_info: OpenJDK 64-Bit Server VM (16.0.1+9) for windows-amd64 JRE (16.0.1+9), built on Apr 21 2021 17:16:40 by "" with MS VC++ 16.8 (VS2019)
+
+END.
