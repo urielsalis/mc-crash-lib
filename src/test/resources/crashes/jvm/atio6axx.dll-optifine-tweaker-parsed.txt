@@ -1,0 +1,75 @@
+{
+  "exception" : "EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffef24cbad2, pid=1968, tid=8448",
+  "problematicFrame" : {
+    "location" : "[atio6axx.dll+0xbbbad2]",
+    "libraryName" : "atio6axx.dll",
+    "libraryOffset" : "0xbbbad2",
+    "functionName" : null,
+    "functionOffset" : null
+  },
+  "nativeFrames" : [ {
+    "location" : "[atio6axx.dll+0xbbbad2]",
+    "libraryName" : "atio6axx.dll",
+    "libraryOffset" : "0xbbbad2",
+    "functionName" : null,
+    "functionOffset" : null
+  }, {
+    "location" : "[atio6axx.dll+0xbb930f]",
+    "libraryName" : "atio6axx.dll",
+    "libraryOffset" : "0xbb930f",
+    "functionName" : null,
+    "functionOffset" : null
+  }, {
+    "location" : "[atio6axx.dll+0xdcaee7]",
+    "libraryName" : "atio6axx.dll",
+    "libraryOffset" : "0xdcaee7",
+    "functionName" : null,
+    "functionOffset" : null
+  }, {
+    "location" : "0x0000000003215894",
+    "libraryName" : null,
+    "libraryOffset" : null,
+    "functionName" : null,
+    "functionOffset" : null
+  } ],
+  "javaFrames" : [ {
+    "location" : "org.lwjgl.opengl.ARBShaderObjects.nglShaderSourceARB(IIJJ)V+0"
+  }, {
+    "location" : "org.lwjgl.opengl.ARBShaderObjects.glShaderSourceARB(ILjava/lang/CharSequence;)V+38"
+  }, {
+    "location" : "net.optifine.shaders.Shaders.createFragShader(Lnet/optifine/shaders/Program;Ljava/lang/String;)I+2097"
+  }, {
+    "location" : "net.optifine.shaders.Shaders.setupProgram(Lnet/optifine/shaders/Program;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V+52"
+  }, {
+    "location" : "net.optifine.shaders.Shaders.init()V+710"
+  }, {
+    "location" : "19468 C1 net.optifine.shaders.Shaders.beginRender(Lcyc;Lcxq;FJ)V (935 bytes) @ 0x000000000658491c [0x0000000006584720+0x1fc]"
+  }, {
+    "location" : "19467 C1 dnc.a(FJ)V (105 bytes) @ 0x0000000006577a0c [0x0000000006577740+0x2cc]"
+  }, {
+    "location" : "7699 C1 dnc.a(FJZ)V (1040 bytes) @ 0x0000000004662ce4 [0x0000000004661ac0+0x1224]"
+  }, {
+    "location" : "18177 C2 cyc.e(Z)V (916 bytes) @ 0x00000000060781bc [0x0000000006077000+0x11bc]"
+  }, {
+    "location" : "cyc.b()V+85"
+  }, {
+    "location" : "net.minecraft.client.main.Main.main([Ljava/lang/String;)V+1174"
+  }, {
+    "location" : "~StubRoutines::call_stub"
+  }, {
+    "location" : "sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0"
+  }, {
+    "location" : "sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+100"
+  }, {
+    "location" : "sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6"
+  }, {
+    "location" : "java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+56"
+  }, {
+    "location" : "net.minecraft.launchwrapper.Launch.launch([Ljava/lang/String;)V+661"
+  }, {
+    "location" : "net.minecraft.launchwrapper.Launch.main([Ljava/lang/String;)V+8"
+  }, {
+    "location" : "~StubRoutines::call_stub"
+  } ],
+  "isModded" : true
+}

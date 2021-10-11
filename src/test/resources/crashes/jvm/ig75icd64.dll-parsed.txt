@@ -1,0 +1,67 @@
+{
+  "exception" : "EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000000c1c1c82, pid=2768, tid=2780",
+  "problematicFrame" : {
+    "location" : "[ig75icd64.dll+0x1c82]",
+    "libraryName" : "ig75icd64.dll",
+    "libraryOffset" : "0x1c82",
+    "functionName" : null,
+    "functionOffset" : null
+  },
+  "nativeFrames" : [ {
+    "location" : "[ig75icd64.dll+0x1c82]",
+    "libraryName" : "ig75icd64.dll",
+    "libraryOffset" : "0x1c82",
+    "functionName" : null,
+    "functionOffset" : null
+  }, {
+    "location" : "[ig75icd64.dll+0x1ea2b5]  DrvSetLayerPaletteEntries+0x96885",
+    "libraryName" : "ig75icd64.dll",
+    "libraryOffset" : "0x1ea2b5",
+    "functionName" : "DrvSetLayerPaletteEntries",
+    "functionOffset" : "0x96885"
+  }, {
+    "location" : "[ig75icd64.dll+0x22808e]  DrvSetLayerPaletteEntries+0xd465e",
+    "libraryName" : "ig75icd64.dll",
+    "libraryOffset" : "0x22808e",
+    "functionName" : "DrvSetLayerPaletteEntries",
+    "functionOffset" : "0xd465e"
+  }, {
+    "location" : "[ig75icd64.dll+0x22794c]  DrvSetLayerPaletteEntries+0xd3f1c",
+    "libraryName" : "ig75icd64.dll",
+    "libraryOffset" : "0x22794c",
+    "functionName" : "DrvSetLayerPaletteEntries",
+    "functionOffset" : "0xd3f1c"
+  }, {
+    "location" : "[ig75icd64.dll+0x72757]  RegisterProcTableCallback+0x68c87",
+    "libraryName" : "ig75icd64.dll",
+    "libraryOffset" : "0x72757",
+    "functionName" : "RegisterProcTableCallback",
+    "functionOffset" : "0x68c87"
+  }, {
+    "location" : "[ig75icd64.dll+0x150517]  RegisterProcTableCallback+0x146a47",
+    "libraryName" : "ig75icd64.dll",
+    "libraryOffset" : "0x150517",
+    "functionName" : "RegisterProcTableCallback",
+    "functionOffset" : "0x146a47"
+  }, {
+    "location" : "org.lwjgl.opengl.GL11.nglDrawArrays(IIIJ)V"
+  } ],
+  "javaFrames" : [ {
+    "location" : "org.lwjgl.opengl.GL11.nglDrawArrays(IIIJ)V"
+  }, {
+    "location" : "bfq.a()I"
+  }, {
+    "location" : "avk.b(IIIIII)V"
+  }, {
+    "location" : "awp.a()V+181"
+  }, {
+    "location" : "atv.S()V+407"
+  }, {
+    "location" : "atv.d()V+88"
+  }, {
+    "location" : "net.minecraft.client.main.Main.main([Ljava/lang/String;)V+768"
+  }, {
+    "location" : "~StubRoutines::call_stub"
+  } ],
+  "isModded" : false
+}

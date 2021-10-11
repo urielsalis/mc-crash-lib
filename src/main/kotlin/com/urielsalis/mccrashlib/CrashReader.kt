@@ -1,15 +1,15 @@
 package com.urielsalis.mccrashlib
 
 import arrow.core.Either
+import com.urielsalis.mccrashlib.parser.JVM_CRASH_HEADER
 import com.urielsalis.mccrashlib.parser.JvmCrashParser
 import com.urielsalis.mccrashlib.parser.MinecraftCrashParser
 import com.urielsalis.mccrashlib.parser.ParserError
 import java.io.File
 
-const val MINECRAFT_CRASH_HEADER = "---- Minecraft Crash Report ----"
-const val JVM_CRASH_HEADER = "#  EXCEPTION_ACCESS_VIOLATION"
-const val SERVER_CONSOLE_LOG = "Client> "
-const val LAUNCHER_LOG_CONTENT = "Launcher/launcher (main) Info"
+private const val MINECRAFT_CRASH_HEADER = "---- Minecraft Crash Report ----"
+private const val SERVER_CONSOLE_LOG = "Client> "
+private const val LAUNCHER_LOG_CONTENT = "Launcher/launcher (main) Info"
 
 class CrashReader {
     private val minecraftCrashParser = MinecraftCrashParser()
