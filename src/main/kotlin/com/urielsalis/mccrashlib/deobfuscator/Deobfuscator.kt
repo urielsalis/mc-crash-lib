@@ -15,6 +15,11 @@ import java.net.http.HttpRequest
 import java.net.http.HttpResponse
 import java.time.Duration
 
+private val sanitizationRegex = Regex("[^a-zA-Z0-9\\-+_#*?.,; ]")
+private fun sanitize(arg: String): String {
+    return arg.replace(sanitizationRegex, "?")
+}
+
 // Note: Also used by Arisa (https://github.com/mojira/arisa-kt)
 /**
  * Gets the path of a file or directory called `childName` within the `directory`.
@@ -45,7 +50,7 @@ fun getSafeChildPath(directory: File, childName: String): File? {
     return destinationFile
 }
 
-private fun getMappingFile(mappingsDirectory: File, version: String, isClient: Boolean): File? {
+private fun getMappingFile(mappingsDirectory: File, version: String, isClient: Boolean): File {
     val name = if (isClient) {
         "$version-client.txt"
     } else {
@@ -53,28 +58,36 @@ private fun getMappingFile(mappingsDirectory: File, version: String, isClient: B
     }
 
     return getSafeChildPath(mappingsDirectory, name)
+        // Sanitize `name` to avoid injection of untrusted text into exception message
+        ?: throw IllegalArgumentException("Cannot create safe path with mappings file name '${sanitize(name)}'")
 }
 
+/**
+ * @param version
+ *      Minecraft version ID
+ * @param content
+ *      Content to deobfuscate
+ * @param isClient
+ *      Whether client (`true`) or dedicated server (`false`) mappings should be used for deobfuscation
+ * @param mappingsDirectory
+ *      Existing directory where to load and store downloaded mappings
+ * @return
+ *      The deobfuscated content
+ * @throws IllegalArgumentException
+ *      If no mappings exist for the version
+ */
 fun getDeobfuscation(
-    modded: Boolean,
     version: String,
     content: String,
     isClient: Boolean,
     mappingsDirectory: File
-): String? {
-    if (modded) {
-        return null
-    }
-
-    val mappingFile = getMappingFile(mappingsDirectory, version, isClient) ?: return null
+): String {
+    val mappingFile = getMappingFile(mappingsDirectory, version, isClient)
 
     // Synchronize to prevent race condition while downloading mapping file
     synchronized(mappingsDirectory) {
         if (!mappingFile.exists()) {
             downloadMapping(version, mappingFile, isClient)
-        }
-        if (!mappingFile.exists()) {
-            return null
         }
     }
     // Matches <whitespace>at<whitespace>(modulename)//(className).(method)((sourcefile):(line))
@@ -90,11 +103,16 @@ fun getDeobfuscation(
     return stringWriter.toString()
 }
 
+/**
+ * @throws IllegalArgumentException if no mappings exist for the version
+ */
 private fun downloadMapping(version: String, mappingFile: File, isClient: Boolean) {
     val mapper = jacksonObjectMapper()
     val manifest = mapper
         .readValue(URL("https://launchermeta.mojang.com/mc/game/version_manifest.json"), VersionManifest::class.java)
-    val url = manifest.versions.firstOrNull { it.id == version }?.url ?: return
+    val url = manifest.versions.firstOrNull { it.id == version }?.url
+        // Sanitize `version` to avoid injection of untrusted text into exception message
+        ?: throw IllegalArgumentException("Unknown version '${sanitize(version)}'")
     val versionInfo = mapper.readValue(URL(url), VersionInfo::class.java)
     val mappingUrl = if (isClient) {
         versionInfo.downloads.clientMappings?.url
@@ -102,12 +120,12 @@ private fun downloadMapping(version: String, mappingFile: File, isClient: Boolea
         versionInfo.downloads.serverMappings?.url
     }
     if (mappingUrl == null) {
-        return
+        throw IllegalArgumentException("Version $version has no mappings")
     }
     downloadFile(mappingUrl, mappingFile)
 }
 
-fun downloadFile(url: String, file: File) {
+private fun downloadFile(url: String, file: File) {
     val client = HttpClient.newBuilder()
         .connectTimeout(Duration.ofSeconds(2))
         .build()

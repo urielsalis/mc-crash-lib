@@ -37,7 +37,13 @@ class MinecraftCrashParser : CrashParser {
         val version = getMinecraftVersion(details)
         val type = getType(details)
         val isClient = type.contains("map_client.txt")
-        val deobf = getDeobfuscation(isModded, version, lines.joinToString("\n"), isClient, mappingsDirectory)
+        val deobf = if (isModded || version == null) null
+            else try {
+                getDeobfuscation(version, lines.joinToString("\n"), isClient, mappingsDirectory)
+            } catch (e: IllegalArgumentException) {
+                // Ignore exception for missing mappings
+                null
+            }
         return exception.fold(
             { Either.left(NoExceptionFound) },
             {
@@ -46,6 +52,7 @@ class MinecraftCrashParser : CrashParser {
                         isModded,
                         it,
                         version,
+                        isClient,
                         deobf,
                         getException(deobf?.split("\n") ?: emptyList()).orNull()
                     )
@@ -54,7 +61,7 @@ class MinecraftCrashParser : CrashParser {
         )
     }
 
-    private fun getMinecraftVersion(details: Map<String, String>) = details.getOrDefault(minecraftVersion, "Unknown")
+    private fun getMinecraftVersion(details: Map<String, String>) = details[minecraftVersion]
     private fun getType(details: Map<String, String>) = details.getOrDefault(typeSection, "Client (map_client.txt)")
 
     private fun isGameModded(details: Map<String, String>) =
@@ -89,11 +96,10 @@ class MinecraftCrashParser : CrashParser {
 
     private fun getDetails(list: List<String>) = list
         .map(String::trim)
-        .map {
+        .associate {
             val pairs = it.split(":")
             pairs.first() to pairs.getOrElse(1) { "" }.removePrefix(" ")
         }
-        .toMap()
 
     private fun parseSections(lines: List<String>): Map<String, List<String>> {
         val sections = mutableMapOf<String, List<String>>()
