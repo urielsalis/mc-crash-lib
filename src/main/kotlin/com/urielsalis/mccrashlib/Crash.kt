@@ -23,6 +23,8 @@ sealed class Crash {
         val nativeFrames: List<JvmFrame>?,
         /** Frames of Java stack trace, in the order in which they appear in the crash report (top to bottom) */
         val javaFrames: List<JvmFrame>?,
+        /** Minecraft version ID; `null` if unknown */
+        val minecraftVersion: String?,
         /** Whether the crash report indicates that Minecraft is modded */
         val isModded: Boolean
     ) : Crash()
