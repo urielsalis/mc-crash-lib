@@ -107,12 +107,11 @@ fun getDeobfuscation(
  * @throws IllegalArgumentException if no mappings exist for the version
  */
 private fun downloadMapping(version: String, mappingFile: File, isClient: Boolean) {
-    val mapper = jacksonObjectMapper()
-    val manifest = mapper
-        .readValue(URL("https://launchermeta.mojang.com/mc/game/version_manifest.json"), VersionManifest::class.java)
+    val manifest = fetchVersionManifest()
     val url = manifest.versions.firstOrNull { it.id == version }?.url
         // Sanitize `version` to avoid injection of untrusted text into exception message
         ?: throw IllegalArgumentException("Unknown version '${sanitize(version)}'")
+    val mapper = jacksonObjectMapper()
     val versionInfo = mapper.readValue(URL(url), VersionInfo::class.java)
     val mappingUrl = if (isClient) {
         versionInfo.downloads.clientMappings?.url

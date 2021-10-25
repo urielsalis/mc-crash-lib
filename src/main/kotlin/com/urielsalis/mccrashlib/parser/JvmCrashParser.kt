@@ -20,6 +20,9 @@ private val NATIVE_STACK_TRACE_MARKERS = listOf(
     "Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)"
 )
 
+// https://github.com/openjdk/jdk/blob/15d4787724ad8723d36e771a9709db51933df2c1/src/hotspot/share/runtime/arguments.cpp#L1108
+private const val JAVA_COMMAND_PREFIX = "java_command: "
+
 class JvmCrashParser : CrashParser {
     /** If present removes the prefix, otherwise returns `null` */
     private fun String.removeRequiredPrefix(prefix: String): String? {
@@ -129,8 +132,15 @@ class JvmCrashParser : CrashParser {
                 .mapNotNull { marker -> parseStackTrace(trimmedLines, marker) }
                 .firstOrNull(),
             parseStackTrace(trimmedLines, JAVA_STACK_TRACE_MARKER),
+            getMinecraftVersion(lines),
             isModded(lines)
         ))
+    }
+
+    private val VERSION_REGEX = Regex(" --version (\\S+) ")
+    private fun getMinecraftVersion(lines: List<String>): String? {
+        val javaCommand = lines.asSequence().mapNotNull { it.removeRequiredPrefix(JAVA_COMMAND_PREFIX) }.firstOrNull()
+        return if (javaCommand == null) null else VERSION_REGEX.find(javaCommand)?.groups?.get(1)?.value
     }
 
     private fun isModded(lines: List<String>): Boolean {

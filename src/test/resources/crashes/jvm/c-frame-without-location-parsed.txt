@@ -25,5 +25,6 @@
   }, {
     "location" : "~StubRoutines::call_stub"
   } ],
+  "minecraftVersion" : null,
   "isModded" : false
 }

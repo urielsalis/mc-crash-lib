@@ -9,5 +9,6 @@
   },
   "nativeFrames" : null,
   "javaFrames" : null,
+  "minecraftVersion" : null,
   "isModded" : false
 }

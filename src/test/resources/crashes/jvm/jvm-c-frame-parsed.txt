@@ -7,5 +7,6 @@
     "location" : "[jvm.dll+0xcd36]"
   } ],
   "javaFrames" : null,
+  "minecraftVersion" : null,
   "isModded" : false
 }

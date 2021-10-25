@@ -63,5 +63,6 @@
   }, {
     "location" : "~StubRoutines::call_stub"
   } ],
+  "minecraftVersion" : "1.6.4",
   "isModded" : false
 }
