@@ -15,7 +15,8 @@ import java.io.File
 private const val crashReportSection = "Minecraft Crash Report"
 private const val systemDetailsSection = "System Details"
 private const val isModded = "Is Modded"
-private const val minecraftVersion = "Minecraft Version ID"
+private const val minecraftVersion = "Minecraft Version"
+private const val minecraftVersionId = "Minecraft Version ID"
 private const val typeSection = "Type"
 
 private const val affectedLevelSection = "Affected level"
@@ -61,7 +62,10 @@ class MinecraftCrashParser : CrashParser {
         )
     }
 
-    private fun getMinecraftVersion(details: Map<String, String>) = details[minecraftVersion]
+    private fun getMinecraftVersion(details: Map<String, String>) =
+        // Fall back to looking up "Minecraft Version"; older versions did not have "Minecraft Version ID"
+        details[minecraftVersionId] ?: details[minecraftVersion]
+
     private fun getType(details: Map<String, String>) = details.getOrDefault(typeSection, "Client (map_client.txt)")
 
     private fun isGameModded(details: Map<String, String>) =

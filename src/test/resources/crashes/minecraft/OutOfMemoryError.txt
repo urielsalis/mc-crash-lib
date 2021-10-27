@@ -1,0 +1,48 @@
+---- Minecraft Crash Report ----
+// Hi. I'm Minecraft, and I'm a crashaholic.
+
+Time: 24/10/21, 1:00 pm
+Description: Exception in server tick loop
+
+java.util.concurrent.CompletionException: java.lang.OutOfMemoryError: Java heap space
+	at atd.c(SourceFile:151)
+	...
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 21w42a
+	Minecraft Version ID: 21w42a
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 16.0.1, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Microsoft
+	Memory: 467906784 bytes (446 MiB) / 2147483648 bytes (2048 MiB) up to 2147483648 bytes (2048 MiB)
+	CPUs: 4
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i3-9100F CPU @ 3.60GHz
+	Identifier: Intel64 Family 6 Model 158 Stepping 10
+	Microarchitecture: Coffee Lake
+	Frequency (GHz): 3.60
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 4
+	Graphics card #0 name: Radeon RX550/550 Series
+	Graphics card #0 vendor: Advanced Micro Devices, Inc. (0x1002)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x699f
+	Graphics card #0 versionInfo: DriverVersion=27.20.22001.14011
+	Memory slot #0 capacity (MB): 16384.00
+	Memory slot #0 clockSpeed (GHz): 2.40
+	Memory slot #0 type: DDR4
+	Virtual memory max (MB): 18758.24
+	Virtual memory used (MB): 15026.74
+	Swap memory total (MB): 2432.00
+	Swap memory used (MB): 130.74
+	JVM Flags: 9 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	Player Count: 1 / 8; [ach['redacted'/208, l='ServerLevel[S1v21w42a]', x=-7843.50, y=319.00, z=6720.50]]
+	Data Packs: vanilla
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Probably not. Client jar signature and brand is untouched; Server jar signature and brand is untouched

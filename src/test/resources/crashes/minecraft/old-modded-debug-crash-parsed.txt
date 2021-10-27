@@ -1,0 +1,8 @@
+{
+  "modded" : true,
+  "exception" : "java.lang.Throwable\nat cep.b(SourceFile:486)\nat ces.ae_(SourceFile:1311)\nat ces.c(SourceFile:808)\nat ces.a(SourceFile:380)\nat net.minecraft.client.main.Main.main(SourceFile:144)",
+  "minecraftVersion" : "1.13-pre6",
+  "isClient" : true,
+  "deobf" : null,
+  "deobfException" : null
+}
