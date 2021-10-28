@@ -52,19 +52,23 @@ class CrashReaderIntegrationTest {
     lateinit var tempDir: File
 
     @ParameterizedTest
-    @ResourceFilesSource("crashes/minecraft")
+    @ResourceFilesSource("crashes/minecraft", ignoredNameSuffixes = ["-parsed"])
     fun shouldRunAllMinecraftCrashes(crashFile: File) {
-        val name = crashFile.name
-        val parts = name.split("-")
-        val isModded = parts[0] == "true"
-        val expectedException = parts[1]
+        val expectedParsedCrashString = File(crashFile.parent, crashFile.nameWithoutExtension + "-parsed.txt")
+            .takeIf(File::isFile)?.readText()
 
         val crashEither = crashReader.processCrash(crashFile.readLines(), tempDir)
         assertTrue(crashEither is Either.Right)
-        val crash = (crashEither as Either.Right).b
+        var crash = (crashEither as Either.Right).b
         assertTrue(crash is Crash.Minecraft)
-        assertEquals(isModded, (crash as Crash.Minecraft).modded)
-        assertTrue(crash.exception.contains(expectedException))
+        // Deobfuscated content uses System line separator; normalize it to LF only
+        crash = (crash as Crash.Minecraft).copy(deobf = crash.deobf?.replace(Regex("\r\n?"), "\n"))
+
+        val mapper = jacksonObjectMapper()
+        // For simplicity compare the JSON string representation of the parsed crash
+        val actualParsedCrashString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(crash)
+
+        assertEquals(expectedParsedCrashString, actualParsedCrashString)
     }
 
     @ParameterizedTest
