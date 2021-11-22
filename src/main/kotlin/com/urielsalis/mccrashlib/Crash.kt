@@ -5,6 +5,14 @@ sealed class Crash {
 
     data class Minecraft(
         val modded: Boolean,
+        /**
+         * Whether the level had been opened with a modded client or server in the past. This does
+         * not necessarily mean that the mod had any effect on the level, or that the client or
+         * server is still modded (see [modded]).
+         *
+         * `null` if unknown, or if no level information exists in the crash report.
+         */
+        val wasLevelOpenedModded: Boolean?,
         val exception: String,
         /** Minecraft version ID; `null` if unknown */
         val minecraftVersion: String?,

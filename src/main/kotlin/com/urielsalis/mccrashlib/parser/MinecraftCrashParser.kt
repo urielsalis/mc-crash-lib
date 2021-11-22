@@ -8,9 +8,9 @@ import java.io.File
 
 /*
     Minecraft crashes are separated into sections starting and ending with --
-    "Minecraft crash report" contains the exception, "System Details" contains more information
-    The exception starts with java.lang and its all lines until the first empty line
-    System details contains a : separated key value pair. We care about Is Modded
+    "Minecraft Crash Report" contains the exception, "System Details" contains more information
+    The exception starts with java.lang and it includes all lines until the first empty line
+    "System Details" contains a : separated key value pair. We care about "Is Modded"
  */
 private const val crashReportSection = "Minecraft Crash Report"
 private const val systemDetailsSection = "System Details"
@@ -32,8 +32,9 @@ class MinecraftCrashParser : CrashParser {
             return Either.left(SectionsNotFound)
         }
         val details = getDetails(sections[systemDetailsSection] ?: error("System details section not found"))
+        val isModded = isGameModded(details)
         val affectedLevel = sections[affectedLevelSection]?.let(::getDetails)
-        val isModded = isGameModded(details) || affectedLevel?.let(::wasLevelModded) == true
+        val wasLevelModded = affectedLevel?.let(::wasLevelModded)
         val exception = getException(sections[crashReportSection] ?: error("Crash report section not found"))
         val version = getMinecraftVersion(details)
         val type = getType(details)
@@ -51,6 +52,7 @@ class MinecraftCrashParser : CrashParser {
                 Either.right(
                     Crash.Minecraft(
                         isModded,
+                        wasLevelModded,
                         it,
                         version,
                         isClient,
@@ -73,8 +75,12 @@ class MinecraftCrashParser : CrashParser {
             !contains("Probably Not", true) && !contains("Unknown", true)
         }
 
-    private fun wasLevelModded(affectedLevelDetails: Map<String, String>) =
-        affectedLevelDetails[levelWasModded] == "true"
+    private fun wasLevelModded(affectedLevelDetails: Map<String, String>): Boolean? =
+        when (affectedLevelDetails[levelWasModded]) {
+            "true" -> true
+            "false" -> false
+            else -> null
+        }
 
     private fun getException(lines: List<String>): Option<String> {
         var foundStart = false
