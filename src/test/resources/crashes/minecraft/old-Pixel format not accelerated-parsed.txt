@@ -1,5 +1,6 @@
 {
   "modded" : false,
+  "wasLevelOpenedModded" : null,
   "exception" : "org.lwjgl.LWJGLException: Pixel format not accelerated",
   "minecraftVersion" : "1.8.9",
   "isClient" : true,

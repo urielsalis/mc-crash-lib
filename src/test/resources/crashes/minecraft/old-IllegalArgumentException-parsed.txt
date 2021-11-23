@@ -1,5 +1,6 @@
 {
   "modded" : false,
+  "wasLevelOpenedModded" : null,
   "exception" : "java.lang.IllegalArgumentException: bound must be positive\nat java.util.Random.nextInt(Random.java:388)\nat ary.a(SourceFile:194)\nat ary.a(SourceFile:49)\nat arm.a(SourceFile:389)\nat asu.a(SourceFile:86)\nat bgv.a(SourceFile:472)\nat qs.a(SourceFile:174)\nat bfh.a(SourceFile:861)\nat qs.c(SourceFile:104)\nat qs.d(SourceFile:116)\nat aqu.a(SourceFile:276)\nat aqu.f(SourceFile:272)\nat aqu.p(SourceFile:657)\nat awn.b(SourceFile:66)\nat atr.a(SourceFile:437)\nat qt.h(SourceFile:384)\nat qt.c(SourceFile:202)\nat net.minecraft.server.MinecraftServer.z(SourceFile:599)\nat po.z(SourceFile:305)\nat net.minecraft.server.MinecraftServer.y(SourceFile:531)\nat net.minecraft.server.MinecraftServer.run(SourceFile:447)\nat java.lang.Thread.run(Thread.java:748)",
   "minecraftVersion" : "1.8",
   "isClient" : false,

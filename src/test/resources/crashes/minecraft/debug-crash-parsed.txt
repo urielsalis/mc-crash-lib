@@ -1,5 +1,6 @@
 {
   "modded" : false,
+  "wasLevelOpenedModded" : null,
   "exception" : "java.lang.Throwable\nat cvi.b(SourceFile:530)\nat cvk.m(SourceFile:1477)\nat cvk.e(SourceFile:925)\nat cvk.b(SourceFile:411)\nat net.minecraft.client.main.Main.main(SourceFile:154)",
   "minecraftVersion" : "1.14.2",
   "isClient" : true,

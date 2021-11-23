@@ -1,5 +1,6 @@
 {
   "modded" : false,
+  "wasLevelOpenedModded" : null,
   "exception" : "java.util.concurrent.CompletionException: java.lang.OutOfMemoryError: Java heap space\nat atd.c(SourceFile:151)\n...",
   "minecraftVersion" : "21w42a",
   "isClient" : true,
