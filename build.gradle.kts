@@ -1,13 +1,13 @@
 plugins {
     java
     id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
-    kotlin("jvm") version "1.4.21"
+    kotlin("jvm") version "1.6.21"
     signing
     `maven-publish`
 }
 
 group = "com.urielsalis"
-version = "2.0.6"
+version = "2.0.7"
 
 val arrowVersion = "0.10.4"
 

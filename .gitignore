@@ -5,3 +5,4 @@
 /.kotest
 /out/
 /logs/
+gradle.properties
