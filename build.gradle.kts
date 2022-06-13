@@ -10,6 +10,7 @@ group = "com.urielsalis"
 version = "2.0.7"
 
 val arrowVersion = "0.10.4"
+val jacksonVersion = "2.12.3"
 
 repositories {
     mavenCentral()
@@ -21,7 +22,8 @@ dependencies {
     implementation("io.arrow-kt", "arrow-syntax", arrowVersion)
     implementation("io.arrow-kt", "arrow-fx", arrowVersion)
     implementation("com.guardsquare", "proguard-retrace", "7.1.0-beta5")
-    implementation("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.12.3")
+    implementation("com.fasterxml.jackson.module", "jackson-module-kotlin", jacksonVersion)
+    implementation("com.fasterxml.jackson.datatype", "jackson-datatype-jsr310", jacksonVersion)
 
     testImplementation("org.junit.jupiter", "junit-jupiter", "5.7.1")
 }
