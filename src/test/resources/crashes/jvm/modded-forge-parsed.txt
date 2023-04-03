@@ -1,0 +1,12 @@
+{
+  "exception" : "EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff9ba14cb49, pid=7716, tid=1424",
+  "problematicFrame" : {
+    "location" : "[jvm.dll+0x2ecb49]"
+  },
+  "nativeFrames" : [ {
+    "location" : "[jvm.dll+0x2ecb49]"
+  } ],
+  "javaFrames" : null,
+  "minecraftVersion" : null,
+  "isModded" : true
+}

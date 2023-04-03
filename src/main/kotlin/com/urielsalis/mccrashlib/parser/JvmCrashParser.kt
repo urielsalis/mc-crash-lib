@@ -150,7 +150,11 @@ class JvmCrashParser : CrashParser {
             "--tweakClass optifine.OptiFineTweaker",
             "net.fabricmc.loader.launch.knot.KnotClient",
             "net.fabricmc.loader.impl.launch.knot.KnotClient", // new class name
-            "--version fabric-loader-"
+            "--version fabric-loader-",
+            // Minecraft Forge
+            "--launchTarget forgeclient",
+            "--launchTarget fmlserver",
+            "--fml.forgeVersion"
         )
         return lines.any { moddedStrings.any(it::contains) }
     }
