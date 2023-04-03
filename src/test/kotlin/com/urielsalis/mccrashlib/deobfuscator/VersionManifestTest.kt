@@ -28,7 +28,7 @@ internal class VersionManifestTest {
             Version(
                 "1.16.2",
                 VersionType.RELEASE,
-                "https://launchermeta.mojang.com/v1/packages/a5cd0a3e52f38c9fb713010b07f7ae89e183b0ff/1.16.2.json",
+                "https://piston-meta.mojang.com/v1/packages/a5cd0a3e52f38c9fb713010b07f7ae89e183b0ff/1.16.2.json",
                 OffsetDateTime.parse("2022-02-25T13:15:31+00:00"),
                 OffsetDateTime.parse("2020-08-11T10:13:46+00:00")
             ),
@@ -41,7 +41,7 @@ internal class VersionManifestTest {
             Version(
                 "1.16.2-rc2",
                 VersionType.SNAPSHOT,
-                "https://launchermeta.mojang.com/v1/packages/0bea810bb372c8f44f2946b98288e298c48edd4d/1.16.2-rc2.json",
+                "https://piston-meta.mojang.com/v1/packages/0bea810bb372c8f44f2946b98288e298c48edd4d/1.16.2-rc2.json",
                 OffsetDateTime.parse("2022-02-25T13:15:31+00:00"),
                 OffsetDateTime.parse("2020-08-10T11:43:36+00:00")
             ),
@@ -54,7 +54,7 @@ internal class VersionManifestTest {
             Version(
                 "b1.5",
                 VersionType.OLD_BETA,
-                "https://launchermeta.mojang.com/v1/packages/3fa704bd73444368f04351d6d4add8a3eead9b4e/b1.5.json",
+                "https://piston-meta.mojang.com/v1/packages/3fa704bd73444368f04351d6d4add8a3eead9b4e/b1.5.json",
                 OffsetDateTime.parse("2022-03-10T09:51:38+00:00"),
                 OffsetDateTime.parse("2011-04-18T22:00:00+00:00")
             ),
@@ -67,7 +67,7 @@ internal class VersionManifestTest {
             Version(
                 "rd-132328",
                 VersionType.OLD_ALPHA,
-                "https://launchermeta.mojang.com/v1/packages/4ec49ff663f96e78a5cf0d9538adb9d1358fc485/rd-132328.json",
+                "https://piston-meta.mojang.com/v1/packages/4ec49ff663f96e78a5cf0d9538adb9d1358fc485/rd-132328.json",
                 OffsetDateTime.parse("2022-03-10T09:51:38+00:00"),
                 OffsetDateTime.parse("2009-05-13T21:28:00+00:00")
             ),
