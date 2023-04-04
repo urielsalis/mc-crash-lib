@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.urielsalis"
-version = "2.0.9"
+version = "2.0.10"
 
 val arrowVersion = "0.10.4"
 val jacksonVersion = "2.12.3"
@@ -104,8 +104,11 @@ tasks {
 
     signing {
         sign(publishing.publications["mavenJava"])
+        sign(configurations.archives.get())
     }
 }
+
+tasks.get("publishMavenJavaPublicationToMavenRepository").dependsOn("signArchives")
 
 tasks.test {
     useJUnitPlatform()
