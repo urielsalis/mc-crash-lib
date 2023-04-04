@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.urielsalis"
-version = "2.0.8"
+version = "2.0.9"
 
 val arrowVersion = "0.10.4"
 val jacksonVersion = "2.12.3"
